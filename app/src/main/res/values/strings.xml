@@ -20,4 +20,9 @@
     <string name="btn_gestionar">Gestionar Inventario de Productos</string>
     <string name="btn_listado">Ir a Listado de Compras</string>
 
+    //*Detalle de listado compras*//
+
+    <string name="txt_detalleListadoCompras">Detalle Listado de Compras</string>
+
+
 </resources>
