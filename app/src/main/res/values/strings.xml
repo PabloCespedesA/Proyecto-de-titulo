@@ -1,4 +1,23 @@
 <resources>
+    //*Menú Login*//
     <string name="app_name">movil app 1</string>
+    <string name="til_usuario">Usuario</string>
+    <string name="til_pass">Clave</string>
+
+    <string name="btn_olvidarContraseña">¿Olvidaste tu contraseña?</string>
     <string name="btn_login">Iniciar sesión</string>
+    <string name="btn_registrarAqui">Registrate aquí</string>
+
+    <string name="txt_noTienes">¿No tienes Cuenta?</string>
+
+
+    //*Menú inicio*//
+
+    <string name="txt_gestionaTuNegocio">Gestiona tu Negocio</string>
+    <string name="txt_queQuieres">¿Qué quieres hacer?</string>
+
+    <string name="btn_registrarProducto">Registrar Nuevo Producto</string>
+    <string name="btn_gestionar">Gestionar Inventario de Productos</string>
+    <string name="btn_listado">Ir a Listado de Compras</string>
+
 </resources>

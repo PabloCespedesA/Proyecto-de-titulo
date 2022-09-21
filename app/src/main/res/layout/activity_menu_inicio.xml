@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuInicio">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9015048" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:background="@color/orange"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="133dp"
+        android:layout_height="62dp"
+        app:layout_constraintEnd_toEndOf="@+id/materialToolbar"
+        app:layout_constraintStart_toStartOf="@+id/materialToolbar"
+        app:layout_constraintTop_toTopOf="@+id/materialToolbar"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/txt_gestionaTuNegocio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/txt_gestionaTuNegocio"
+        android:textColor="@color/orange"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
+        app:layout_constraintVertical_bias="0.144" />
+
+    <TextView
+        android:id="@+id/txt_queQuieres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/txt_queQuieres"
+        android:textColor="@color/orange"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_gestionaTuNegocio"
+        app:layout_constraintVertical_bias="0.234" />
+
+    <Button
+        android:id="@+id/btn_registrarProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#F6462C"
+        android:text="@string/btn_registrarProducto"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_queQuieres"
+        app:layout_constraintVertical_bias="0.203" />
+
+    <Button
+        android:id="@+id/btn_gestionar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#F6462C"
+        android:text="@string/btn_gestionar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_registrarProducto" />
+
+    <Button
+        android:id="@+id/btn_listado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#F6462C"
+        android:text="@string/btn_listado"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_gestionar"
+        app:layout_constraintVertical_bias="0.036" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="85dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="12dp"
+        android:contentDescription="@string/btn_login"
+        app:layout_constraintBottom_toTopOf="@+id/txt_queQuieres"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_gestionaTuNegocio"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
