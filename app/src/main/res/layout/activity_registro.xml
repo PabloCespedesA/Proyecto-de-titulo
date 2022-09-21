@@ -4,7 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/background_background"
     tools:context=".registro">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView7"
+        android:layout_width="99dp"
+        android:layout_height="84dp"
+        android:src="@mipmap/logo1_round"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"
@@ -23,6 +34,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout11"
         android:layout_width="279dp"
         android:layout_height="40dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline12"
@@ -38,6 +50,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout10"
         android:layout_width="279dp"
         android:layout_height="40dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline12"
@@ -51,18 +64,6 @@
             android:layout_height="wrap_content"
             android:hint="hint" />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/guideline12"
-        app:layout_constraintEnd_toStartOf="@+id/guideline11"
-        app:layout_constraintHorizontal_bias="0.457"
-        app:layout_constraintStart_toStartOf="@+id/guideline13"
-        app:layout_constraintTop_toTopOf="@+id/guideline10"
-        app:layout_constraintVertical_bias="0.067"
-        app:srcCompat="@drawable/ic_launcher_background" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline10"

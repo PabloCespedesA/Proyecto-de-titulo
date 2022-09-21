@@ -4,7 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/background_background"
     tools:context=".listado_compras">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar4"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:background="@color/orange"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="70dp"
+        android:layout_height="62dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/materialToolbar4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/logo3" />
 
     <Button
         android:id="@+id/button11"
@@ -111,6 +134,6 @@
         android:layout_width="168dp"
         android:layout_height="62dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="77dp" />
+        tools:layout_editor_absoluteX="121dp"
+        tools:layout_editor_absoluteY="81dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
