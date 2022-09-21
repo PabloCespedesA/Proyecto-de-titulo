@@ -1,4 +1,11 @@
 <resources>
+    //*Menú Login*//
     <string name="app_name">movil app 1</string>
     <string name="btn_login">Iniciar sesión</string>
+    <string name="btn_crear_cuenta">¿No tienes Cuenta?</string>
+    <string name="btn_olvidar_contraseña">¿Olvidaste tu contraseña?</string>
+    <string name="registrarse_aqui">Registrate aquí</string>
+    <string name="til_usuario">Usuario</string>
+
+
 </resources>
