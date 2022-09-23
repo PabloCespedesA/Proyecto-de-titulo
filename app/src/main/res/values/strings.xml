@@ -28,5 +28,11 @@
     <string name="btn_guardar">Guardar</string>
     <string name="btn_eliminar">Eliminar</string>
 
+    //*Confirmación eliminar listado o producto*//
+    <string name="confirm_eliminar_listado">¿Quieres eliminar este listado?</string>
+    <string name="confirm_eliminar_producto">¿Quieres eliminar este producto?</string>
+    <string name="btn_confirmar">Confirmar</string>
+    <string name="btn_deshacer">Deshacer</string>
+
 
 </resources>
