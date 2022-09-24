@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Tipo_de_producto">
+        <item>Arroz</item>
+        <item>Bebidas</item>
+        <item>Fiambres</item>
+        <item>Frutas</item>
+        <item>Pastas</item>
+        <item>Snacks</item>
+    </string-array>
+</resources>

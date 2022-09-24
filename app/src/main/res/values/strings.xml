@@ -57,4 +57,23 @@
     <string name="til_detalleListaProducto">Detalle de Productos</string>
     <string name="til_subDetalleListaProducto">Detalle de los productos, según el tipo seleccionado</string>
 
+    //*Menu inventario productos*//
+
+    <string name="til_inventarioProductos">Gestiona tu Inventario</string>
+    <string name="btn_verProductos">Ver todos los productos</string>
+    <string name="btn_verPorTipo">Ver por tipo de producto</string>
+
+    //*Registrar producto*//
+
+    <string name="til_nombreProducto">Nombre producto</string>
+    <string name="til_cantidadProducto">Cantidad</string>
+    <string name="til_precioProducto">Precio del producto</string>
+    <string name="til_fechaVencimientoProducto">Fecha Vencimiento</string>
+    <string name="til_ubicacionProducto">Ubicación en tienda</string>
+    <string name="btn_agregarProducto">Agregar producto</string>
+
+    //*Listado de compras*//
+
+    <string name="til_listadoCompras">Listado de compras</string>
+
 </resources>

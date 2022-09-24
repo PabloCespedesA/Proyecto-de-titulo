@@ -9,7 +9,7 @@
     tools:context=".registro">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/imagen_tienda"
         android:layout_width="99dp"
         android:layout_height="84dp"
         android:src="@mipmap/logo1_round"
@@ -19,9 +19,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
-        android:layout_width="279dp"
-        android:layout_height="40dp"
+        android:id="@+id/til_ubicacion_en_tienda"
+        android:layout_width="266dp"
+        android:layout_height="48dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
@@ -31,13 +31,13 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="277dp"
             android:layout_height="46dp"
-            android:hint="hint" />
+            android:hint="@string/til_ubicacionProducto" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout11"
-        android:layout_width="279dp"
-        android:layout_height="40dp"
+        android:id="@+id/til_precio"
+        android:layout_width="266dp"
+        android:layout_height="48dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
@@ -47,13 +47,13 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="@string/til_precioProducto" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout10"
-        android:layout_width="279dp"
-        android:layout_height="40dp"
+        android:id="@+id/til_nombre_producto"
+        android:layout_width="266dp"
+        android:layout_height="48dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
@@ -63,7 +63,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="@string/til_nombreProducto" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.Guideline
@@ -95,8 +95,9 @@
         app:layout_constraintGuide_percent="0.1" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="279dp"
-        android:layout_height="40dp"
+        android:id="@+id/til_cantidad"
+        android:layout_width="266dp"
+        android:layout_height="48dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
@@ -106,12 +107,13 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="@string/til_cantidadProducto" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="279dp"
-        android:layout_height="40dp"
+        android:id="@+id/til_fecha_vencimiento"
+        android:layout_width="266dp"
+        android:layout_height="48dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
@@ -121,15 +123,30 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="@string/til_fechaVencimientoProducto" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_guardar_listado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="568dp" />
+        android:backgroundTint="@color/rojo"
+        android:text="@string/btn_agregarProducto"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintEnd_toStartOf="@+id/guideline11"
+        app:layout_constraintStart_toStartOf="@+id/guideline13"
+        app:layout_constraintTop_toTopOf="@+id/guideline10"
+        app:layout_constraintVertical_bias="0.881" />
+
+    <Spinner
+        android:id="@+id/sleccion_tipo_producto"
+        android:layout_width="266dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="28dp"
+        android:entries="@array/Tipo_de_producto"
+        app:layout_constraintBottom_toTopOf="@+id/til_nombre_producto"
+        app:layout_constraintEnd_toStartOf="@+id/guideline11"
+        app:layout_constraintTop_toTopOf="@+id/guideline10"
+        app:layout_constraintVertical_bias="0.917" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
