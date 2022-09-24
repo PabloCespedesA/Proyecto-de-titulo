@@ -23,10 +23,22 @@
     //*Detalle de listado compras*//
 
     <string name="til_detalleListadoCompras">Detalle Listado de Compras</string>
-    <string name="txt_compra">Bonobon, Collac, Gomitas, Mashmellow, Chicle Big Time, Calugones yMini Jaleas</string>
+    <string name="til_compra">Bonobon Collac Gomitas Mashmellow Chicle Big Time Calugones Mini Jaleas</string>
 
     <string name="btn_guardar">Guardar</string>
     <string name="btn_eliminar">Eliminar</string>
 
+    //*Agregar Listado Compra*//
+
+    <string name="til_escribeTitulo">Escribe un título</string>
+    <string name="til_agregarElementos">Agregar Elementos</string>
+
+    //*Confirmación eliminar listado o producto*//
+    <string name="confirm_eliminar_listado">¿Quieres eliminar este listado?</string>
+    <string name="confirm_eliminar_producto">¿Quieres eliminar este producto?</string>
+    <string name="btn_confirmar">Confirmar</string>
+    <string name="btn_deshacer">Deshacer</string>
+    <string name="producto_eliminado">¡Tu producto se ha eliminado con éxito!</string>
+    <string name="listado_eliminado">¡Tu listado se ha eliminado con éxito!</string>
 
 </resources>
