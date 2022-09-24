@@ -41,4 +41,19 @@
     <string name="producto_eliminado">¡Tu producto se ha eliminado con éxito!</string>
     <string name="listado_eliminado">¡Tu listado se ha eliminado con éxito!</string>
 
+    //*Inventario de todos los productos*//
+
+    <string name="til_productosInventario">Productos del inventario</string>
+    <string name="til_subProductosInventario">Todos los productos registrados hasta el momento</string>
+
+    //*Inventario de todos los productos por tipo*//
+
+    <string name="til_tipoProductosInventario">Tipo de Productos del Inventario</string>
+    <string name="til_subTipoProductosInventario">Productos ordenados por tipo</string>
+
+    //*Inventario por detalle del tipo de Producto*//
+
+    <string name="til_detalleListaProducto">Detalle de Productos</string>
+    <string name="til_subDetalleListaProducto">Detalle de los productos, según el tipo seleccionado</string>
+
 </resources>

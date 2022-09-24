@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@mipmap/background_background"
     android:orientation="vertical"
-    tools:context=".inventario_todos_los_productos">
+    tools:context=".inventario_tipo">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar6"
@@ -31,7 +31,7 @@
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/til_productosInventario"
+        android:text="@string/til_tipoProductosInventario"
         android:textAlignment="center"
         android:textColor="#F3F0F0"
         android:textSize="24sp" />
@@ -40,12 +40,11 @@
         android:id="@+id/textView7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/til_subProductosInventario"
+        android:text="@string/til_subTipoProductosInventario"
         android:textAlignment="center"
         android:textColor="#FBF9F9" />
 
     <ListView
-        android:id="@+id/lista_todos_inventario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></ListView>
 
