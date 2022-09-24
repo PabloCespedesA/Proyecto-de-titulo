@@ -7,6 +7,19 @@
     android:background="@mipmap/background_background"
     tools:context=".activity_confirmacion_eliminar_producto">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/materialToolbar9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/orange"
+        android:foreground="@mipmap/logo3"
+        android:foregroundGravity="center_horizontal"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline30"
         android:layout_width="wrap_content"
@@ -35,30 +48,6 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9" />
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/materialToolbar9"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:background="@color/orange"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="70dp"
-        android:layout_height="62dp"
-        android:layout_marginEnd="168dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/materialToolbar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/logo3" />
-
     <EditText
         android:id="@+id/editText4"
         android:layout_width="250dp"
@@ -79,9 +68,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline32"
         app:layout_constraintEnd_toStartOf="@+id/guideline21"
         app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="@+id/guideline30"
-        app:layout_constraintTop_toBottomOf="@+id/materialToolbar9"
-        app:layout_constraintVertical_bias="0.461" />
+        app:layout_constraintStart_toStartOf="@+id/guideline30" />
 
     <Button
         android:id="@+id/button21"
