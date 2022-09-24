@@ -9,9 +9,22 @@
     tools:context=".editar_producto">
 
     <Button
-        android:id="@+id/btn_eliminar_listado"
+        android:id="@+id/btn_atras_editar_producto"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="@color/rojo"
+        app:icon="@drawable/vector_flecha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_eliminar_detalle_producto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/rojo"
         android:text="@string/btn_eliminar"
         app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
@@ -20,40 +33,20 @@
         app:layout_constraintTop_toTopOf="@+id/guideline10"
         app:layout_constraintVertical_bias="0.932" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imagen_tienda"
-        android:layout_width="99dp"
-        android:layout_height="84dp"
-        android:src="@mipmap/logo1_round"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout10"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/menu_desplegable" />
-
     <com.google.android.material.textfield.TextInputLayout
-<<<<<<< HEAD
-        android:layout_width="226dp"
-        android:layout_height="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline15"
-        app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintStart_toStartOf="@+id/guideline16"
-        app:layout_constraintTop_toTopOf="@+id/guideline14">
-=======
         android:id="@+id/til_ubicacion_en_tienda"
-        android:layout_width="266dp"
+        android:layout_width="265dp"
         android:layout_height="48dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toTopOf="@+id/guideline10"
         app:layout_constraintVertical_bias="0.737">
->>>>>>> master
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="277dp"
             android:layout_height="46dp"
+            android:layout_marginTop="16dp"
             android:hint="@string/til_ubicacionProducto" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -150,9 +143,10 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btn_guardar_listado"
+        android:id="@+id/btn_guardar_detalle_producto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/rojo"
         android:text="@string/btn_guardar"
         app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
@@ -171,5 +165,19 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toTopOf="@+id/guideline10"
         app:layout_constraintVertical_bias="0.917" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/til_editarProducto"
+        android:textAlignment="center"
+        android:textColor="@color/rojo"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/sleccion_tipo_producto"
+        app:layout_constraintEnd_toStartOf="@+id/guideline11"
+        app:layout_constraintStart_toStartOf="@+id/guideline13"
+        app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

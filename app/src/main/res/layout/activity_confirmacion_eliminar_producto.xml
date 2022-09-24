@@ -61,13 +61,12 @@
         android:inputType="textMultiLine"
         android:selectAllOnFocus="false"
         android:singleLine="false"
-        android:textAlignment="center"
+        android:textAlignment="gravity"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
         app:circularflow_defaultRadius="@dimen/cardview_default_radius"
         app:layout_constraintBottom_toTopOf="@+id/guideline32"
-        app:layout_constraintEnd_toStartOf="@+id/guideline21"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="@+id/guideline30"
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar9" />
@@ -98,10 +97,8 @@
         android:rotation="0"
         app:icon="@drawable/vector_flecha"
         app:iconPadding="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
@@ -115,7 +112,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/editText4"
         app:layout_constraintEnd_toEndOf="@+id/editText4"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/editText"
         app:layout_constraintTop_toTopOf="@+id/editText4"
         app:layout_constraintVertical_bias="0.801" />
 
@@ -123,13 +119,8 @@
         android:id="@+id/btn_guardar_confirmacion_eliminacion_producto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:backgroundTint="@color/rojo"
-        android:text="@string/btn_guardar"
-=======
         android:backgroundTint="@color/rojo_btn1"
         android:text="@string/btn_confirmar"
->>>>>>> master
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/editText4"
         app:layout_constraintEnd_toEndOf="@+id/editText4"

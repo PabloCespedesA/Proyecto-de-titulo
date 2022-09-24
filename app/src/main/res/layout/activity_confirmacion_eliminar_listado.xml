@@ -80,10 +80,8 @@
         android:rotation="0"
         app:icon="@drawable/vector_flecha"
         app:iconPadding="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
@@ -105,13 +103,8 @@
         android:id="@+id/btn_eliminar_confirmacion_eliminar_listado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:backgroundTint="@color/rojo"
-        android:text="@string/btn_eliminar"
-=======
         android:backgroundTint="@color/rojo_btn1"
         android:text="@string/btn_confirmar"
->>>>>>> master
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/editText"
         app:layout_constraintEnd_toEndOf="@+id/editText"

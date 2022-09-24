@@ -60,7 +60,7 @@
         android:inputType="textMultiLine"
         android:selectAllOnFocus="false"
         android:singleLine="false"
-        android:textAlignment="center"
+        android:textAlignment="gravity"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
