@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_agregar_listado"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/background_background"
@@ -52,7 +53,7 @@
         android:id="@+id/editTextTextMultiLine3"
         android:layout_width="290dp"
         android:layout_height="323dp"
-        android:background="@color/orange"
+        android:background="@color/rojo_btn2"
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/til_escribeTitulo"
@@ -64,6 +65,8 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline25"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="@+id/guideline22"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar2"
+        app:layout_constraintVertical_bias="0.805"
         tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
     <TextView
@@ -71,14 +74,15 @@
         android:layout_width="234dp"
         android:layout_height="63dp"
         android:fontFamily="sans-serif-black"
-        android:text="@string/til_detalleListadoCompras"
+        android:text="@string/til_agregarListado"
         android:textAlignment="center"
-        android:textColor="#F44336"
+        android:textColor="@color/rojo"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine3"
         app:layout_constraintEnd_toStartOf="@+id/guideline25"
         app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="@+id/guideline22" />
+        app:layout_constraintStart_toStartOf="@+id/guideline22"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar2" />
 
     <Button
         android:id="@+id/button17"
