@@ -24,6 +24,7 @@
     <Button
         android:layout_width="64dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/rojo"
         app:icon="@drawable/vector_flecha" />
 
     <TextView
