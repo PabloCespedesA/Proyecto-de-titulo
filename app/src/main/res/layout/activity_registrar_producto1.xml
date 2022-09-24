@@ -8,7 +8,7 @@
     tools:context=".registrar_producto1">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout9"
+        android:id="@+id/til_tipo"
         android:layout_width="0dp"
         android:layout_height="60dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
@@ -23,7 +23,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout8"
+        android:id="@+id/til_nombre"
         android:layout_width="0dp"
         android:layout_height="60dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
@@ -50,7 +50,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout8"
+        android:id="@+id/til_cantidad"
         android:layout_width="0dp"
         android:layout_height="60dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
@@ -65,7 +65,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/til_precio"
         android:layout_width="0dp"
         android:layout_height="60dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
@@ -80,7 +80,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout7"
+        android:id="@+id/til_vencimiento"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
@@ -95,7 +95,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout9"
+        android:id="@+id/til_ubicacion"
         android:layout_width="0dp"
         android:layout_height="59dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
