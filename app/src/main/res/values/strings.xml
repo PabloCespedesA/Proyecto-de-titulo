@@ -76,4 +76,9 @@
 
     <string name="til_listadoCompras">Listado de compras</string>
 
+    //*Editar producto*//
+
+    <string name="til_editarProducto">Editar Producto</string>
+
+
 </resources>
