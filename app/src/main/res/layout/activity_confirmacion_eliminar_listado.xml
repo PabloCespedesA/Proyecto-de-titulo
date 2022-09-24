@@ -69,7 +69,7 @@
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar11" />
 
     <Button
-        android:id="@+id/btn_atras_eliminar_listado"
+        android:id="@+id/btn_guardar_detalle_listado_compras"
         android:layout_width="65dp"
         android:layout_height="57dp"
         android:layout_marginTop="64dp"
@@ -86,7 +86,7 @@
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/btn_deshacer"
+        android:id="@+id/btn_eliminar_detalle_listado_compras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/rojo"
@@ -100,11 +100,11 @@
         app:layout_constraintVertical_bias="0.801" />
 
     <Button
-        android:id="@+id/btn_confirmar"
+        android:id="@+id/btn_eliminar_confirmacion_eliminar_listado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/rojo"
-        android:text="@string/btn_confirmar"
+        android:text="@string/btn_eliminar"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/editText"
         app:layout_constraintEnd_toEndOf="@+id/editText"

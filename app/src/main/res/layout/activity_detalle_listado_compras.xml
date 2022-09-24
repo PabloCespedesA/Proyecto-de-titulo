@@ -102,7 +102,7 @@
         android:text="@string/til_compra"
         android:textColor="#ECE6E6"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_atras_eliminar_listado"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_guardar_detalle_listado_compras"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine"
         app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine"
@@ -110,7 +110,7 @@
         app:layout_constraintVertical_bias="0.21" />
 
     <Button
-        android:id="@+id/btn_atras_eliminar_listado"
+        android:id="@+id/btn_guardar_detalle_listado_compras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/rojo"
@@ -121,7 +121,7 @@
         app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine" />
 
     <Button
-        android:id="@+id/btn_deshacer"
+        android:id="@+id/btn_eliminar_detalle_listado_compras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/rojo"
