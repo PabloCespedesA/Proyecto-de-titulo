@@ -34,16 +34,6 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9" />
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="70dp"
-        android:layout_height="62dp"
-        android:layout_marginEnd="168dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/materialToolbar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/logo3" />
-
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar6"
         android:layout_width="409dp"
@@ -57,6 +47,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="70dp"
+        android:layout_height="62dp"
+        android:layout_marginEnd="168dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/materialToolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/logo3" />
 
     <EditText
         android:id="@+id/editText"
