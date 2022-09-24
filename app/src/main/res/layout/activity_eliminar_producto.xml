@@ -49,7 +49,7 @@
         app:layout_constraintGuide_percent="0.9" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/til_producto_eliminado"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:background="@color/orange"
@@ -58,7 +58,6 @@
         android:inputType="textMultiLine"
         android:selectAllOnFocus="false"
         android:singleLine="false"
-        android:text="@string/producto_eliminado"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="30sp"
@@ -86,4 +85,18 @@
         app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/producto_eliminado"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/til_producto_eliminado"
+        app:layout_constraintEnd_toEndOf="@+id/til_producto_eliminado"
+        app:layout_constraintStart_toStartOf="@+id/til_producto_eliminado"
+        app:layout_constraintTop_toTopOf="@+id/til_producto_eliminado" />
 </androidx.constraintlayout.widget.ConstraintLayout>

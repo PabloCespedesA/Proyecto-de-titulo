@@ -57,8 +57,7 @@
         android:inputType="textMultiLine"
         android:selectAllOnFocus="false"
         android:singleLine="false"
-        android:text="@string/confirm_eliminar_listado"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -70,7 +69,7 @@
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar11" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btn_atras_eliminar_listado"
         android:layout_width="65dp"
         android:layout_height="57dp"
         android:layout_marginTop="64dp"
@@ -87,7 +86,7 @@
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btn_deshacer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/rojo"
@@ -101,7 +100,7 @@
         app:layout_constraintVertical_bias="0.801" />
 
     <Button
-        android:id="@+id/button14"
+        android:id="@+id/btn_confirmar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/rojo"
@@ -113,5 +112,21 @@
         app:layout_constraintStart_toStartOf="@+id/editText"
         app:layout_constraintTop_toTopOf="@+id/editText"
         app:layout_constraintVertical_bias="0.806" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm_eliminar_listado"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="@+id/editText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editText"
+        app:layout_constraintTop_toTopOf="@+id/editText"
+        app:layout_constraintVertical_bias="0.363" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
