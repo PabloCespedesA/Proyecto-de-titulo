@@ -22,6 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/btn_atras_inventario_tipos"
         android:layout_width="64dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/rojo"
