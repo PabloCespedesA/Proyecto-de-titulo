@@ -23,10 +23,15 @@
     //*Detalle de listado compras*//
 
     <string name="til_detalleListadoCompras">Detalle Listado de Compras</string>
-    <string name="txt_compra">Bonobon, Collac, Gomitas, Mashmellow, Chicle Big Time, Calugones yMini Jaleas</string>
+    <string name="til_compra">Bonobon Collac Gomitas Mashmellow Chicle Big Time Calugones Mini Jaleas</string>
 
     <string name="btn_guardar">Guardar</string>
     <string name="btn_eliminar">Eliminar</string>
+
+    //*Agregar Listado Compra*//
+
+    <string name="til_escribeTitulo">Escribe un título</string>
+    <string name="til_agregarElementos">Agregar Elementos</string>
 
 
 </resources>
