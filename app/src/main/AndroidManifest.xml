@@ -14,6 +14,9 @@
         android:theme="@style/Theme.MovilApp1"
         tools:targetApi="31">
         <activity
+            android:name=".menu_inventario_productos"
+            android:exported="false" />
+        <activity
             android:name=".inventario_detalle_producto"
             android:exported="false" />
         <activity
