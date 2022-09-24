@@ -20,9 +20,6 @@
             android:name=".inventario_tipo"
             android:exported="false" />
         <activity
-            android:name=".activity_menu_desplegado"
-            android:exported="false" />
-        <activity
             android:name=".agregar_listado_compra"
             android:exported="false" />
         <activity
