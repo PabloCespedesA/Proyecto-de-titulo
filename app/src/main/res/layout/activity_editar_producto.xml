@@ -27,10 +27,20 @@
         android:src="@mipmap/logo1_round"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout10"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/menu_desplegable" />
 
     <com.google.android.material.textfield.TextInputLayout
+<<<<<<< HEAD
+        android:layout_width="226dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline15"
+        app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintStart_toStartOf="@+id/guideline16"
+        app:layout_constraintTop_toTopOf="@+id/guideline14">
+=======
         android:id="@+id/til_ubicacion_en_tienda"
         android:layout_width="266dp"
         android:layout_height="48dp"
@@ -39,6 +49,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toTopOf="@+id/guideline10"
         app:layout_constraintVertical_bias="0.737">
+>>>>>>> master
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="277dp"

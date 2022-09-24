@@ -106,7 +106,7 @@
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/button22"
+        android:id="@+id/btn_deshacer_confirmacion_eliminar_producto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/rojo_btn1"
@@ -120,11 +120,16 @@
         app:layout_constraintVertical_bias="0.801" />
 
     <Button
-        android:id="@+id/button23"
+        android:id="@+id/btn_guardar_confirmacion_eliminacion_producto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
+        android:backgroundTint="@color/rojo"
+        android:text="@string/btn_guardar"
+=======
         android:backgroundTint="@color/rojo_btn1"
         android:text="@string/btn_confirmar"
+>>>>>>> master
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/editText4"
         app:layout_constraintEnd_toEndOf="@+id/editText4"

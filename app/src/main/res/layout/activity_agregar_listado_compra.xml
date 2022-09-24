@@ -67,7 +67,11 @@
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="@+id/guideline22"
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar2"
+<<<<<<< HEAD
+        app:layout_constraintVertical_bias="0.675"
+=======
         app:layout_constraintVertical_bias="0.805"
+>>>>>>> master
         tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
     <TextView
@@ -86,7 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar2" />
 
     <Button
-        android:id="@+id/button17"
+        android:id="@+id/btn_guardar_agregar_listado_compra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/rojo"
@@ -103,7 +107,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/til_agregarElementos"
-        app:layout_constraintBottom_toTopOf="@+id/button17"
+        app:layout_constraintBottom_toTopOf="@+id/btn_guardar_agregar_listado_compra"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine3"
         app:layout_constraintHorizontal_bias="0.164"
         app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine3"
