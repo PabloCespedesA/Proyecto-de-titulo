@@ -32,6 +32,7 @@
 
     <string name="til_escribeTitulo">Escribe un título</string>
     <string name="til_agregarElementos">Agregar Elementos</string>
+    <string name="til_agregarListado">Nuevo listado de compras</string>
 
     //*Confirmación eliminar listado o producto*//
     <string name="confirm_eliminar_listado">¿Quieres eliminar este listado?</string>

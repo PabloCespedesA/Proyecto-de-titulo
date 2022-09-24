@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/view_eliminar_producto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/background_background"
@@ -60,7 +61,6 @@
         android:inputType="textMultiLine"
         android:selectAllOnFocus="false"
         android:singleLine="false"
-        android:text="@string/confirm_eliminar_producto"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="30sp"
@@ -71,6 +71,22 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="@+id/guideline30"
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar9" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm_eliminar_producto"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/editText4"
+        app:layout_constraintEnd_toEndOf="@+id/editText4"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/editText4"
+        app:layout_constraintTop_toTopOf="@+id/editText4"
+        app:layout_constraintVertical_bias="0.336" />
 
     <Button
         android:id="@+id/btn_atras_eliminar_producto"
@@ -93,7 +109,7 @@
         android:id="@+id/button22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/rojo"
+        android:backgroundTint="@color/rojo_btn1"
         android:text="@string/btn_deshacer"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/editText4"
@@ -107,7 +123,7 @@
         android:id="@+id/button23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/rojo"
+        android:backgroundTint="@color/rojo_btn1"
         android:text="@string/btn_confirmar"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/editText4"
@@ -116,4 +132,5 @@
         app:layout_constraintStart_toStartOf="@+id/editText4"
         app:layout_constraintTop_toTopOf="@+id/editText4"
         app:layout_constraintVertical_bias="0.806" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
