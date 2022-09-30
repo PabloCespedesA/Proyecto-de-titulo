@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/background_background"
-    tools:context=".listado_compras">
+    tools:context=".Listado_de_compras">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar4"

@@ -80,5 +80,27 @@
 
     <string name="til_editarProducto">Editar Producto</string>
 
+    //*Registrar usuario*//
+
+    <string name="til_nombreUsuario">Nombre Usuario</string>
+    <string name="til_nombreNegocio">Nombre del Negocio</string>
+    <string name="til_email">Email</string>
+    <string name="til_contraseñaRegistro">Contraseña</string>
+    <string name="til_repetirContraseña">Repetir Contraseña</string>
+    <string name="til_yaTienesCuenta">¿Ya tienes cuenta?</string>
+
+    <string name="btn_iniciSesion">Inicia Sesión Aquí</string>
+    <string name="btn_registrarme">Registrarme</string>
+    <string name="title_activity_menu_desplegable">Menu_desplegable</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 
 </resources>
