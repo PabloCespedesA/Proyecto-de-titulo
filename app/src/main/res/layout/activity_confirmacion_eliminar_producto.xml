@@ -67,9 +67,9 @@
         android:textStyle="bold"
         app:circularflow_defaultRadius="@dimen/cardview_default_radius"
         app:layout_constraintBottom_toTopOf="@+id/guideline32"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="@+id/guideline30"
-        app:layout_constraintTop_toBottomOf="@+id/materialToolbar9" />
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar9"
+        app:layout_constraintVertical_bias="0.496" />
 
     <TextView
         android:id="@+id/textView12"
