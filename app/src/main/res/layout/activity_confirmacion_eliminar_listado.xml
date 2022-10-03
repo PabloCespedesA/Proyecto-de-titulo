@@ -86,7 +86,7 @@
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <Button
-        android:id="@+id/btn_eliminar_detalle_listado_compras"
+        android:id="@+id/btn_deshacer_eliminar_listado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/rojo_btn1"
@@ -101,7 +101,7 @@
         app:layout_constraintVertical_bias="0.801" />
 
     <Button
-        android:id="@+id/btn_eliminar_confirmacion_eliminar_listado"
+        android:id="@+id/btn_confirmar_eliminar_listado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/rojo_btn1"
