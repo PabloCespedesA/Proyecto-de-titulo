@@ -95,7 +95,7 @@
         android:text="@string/producto_eliminado"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/til_producto_eliminado"
         app:layout_constraintEnd_toEndOf="@+id/til_producto_eliminado"

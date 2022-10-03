@@ -3,7 +3,8 @@ package com.example.movilapp1
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class activity_eliminar_listado : AppCompatActivity() {
+class
+activity_eliminar_listado : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_eliminar_listado)

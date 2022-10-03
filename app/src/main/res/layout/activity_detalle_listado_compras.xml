@@ -62,24 +62,23 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toTopOf="@+id/guideline12"
-        app:layout_constraintVertical_bias="0.051"
+        app:layout_constraintVertical_bias="0.022"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/til_detalleListadoCompra"
-        android:layout_width="234dp"
-        android:layout_height="63dp"
+        android:layout_width="250dp"
+        android:layout_height="79dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/til_detalleListadoCompras"
         android:textAlignment="center"
-        android:textColor="@color/rojo"
-        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toStartOf="@+id/guideline14"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toBottomOf="@+id/btn_atras_listado"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintVertical_bias="0.089" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine"
@@ -94,7 +93,7 @@
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toBottomOf="@+id/til_detalleListadoCompra"
-        app:layout_constraintVertical_bias="0.504"
+        app:layout_constraintVertical_bias="0.184"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
@@ -118,9 +117,11 @@
         android:layout_marginBottom="24dp"
         android:backgroundTint="@color/rojo"
         android:text="@string/btn_guardar"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextMultiLine"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine"
-        app:layout_constraintHorizontal_bias="0.335"
+        app:layout_constraintHorizontal_bias="0.251"
         app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine" />
 
     <Button
@@ -130,9 +131,11 @@
         android:layout_marginBottom="24dp"
         android:backgroundTint="@color/rojo"
         android:text="@string/btn_eliminar"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextMultiLine"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine"
-        app:layout_constraintHorizontal_bias="0.963"
+        app:layout_constraintHorizontal_bias="0.895"
         app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
