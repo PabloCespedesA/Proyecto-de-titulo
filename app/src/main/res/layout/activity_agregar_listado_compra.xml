@@ -52,8 +52,8 @@
 
     <EditText
         android:id="@+id/editTextTextMultiLine3"
-        android:layout_width="312dp"
-        android:layout_height="346dp"
+        android:layout_width="290dp"
+        android:layout_height="323dp"
         android:background="@color/rojo_btn2"
         android:ems="10"
         android:gravity="start|top"
@@ -67,22 +67,23 @@
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="@+id/guideline22"
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar2"
-        app:layout_constraintVertical_bias="0.691" />
+        app:layout_constraintVertical_bias="0.646" />
 
     <TextView
         android:id="@+id/til_detalleListadoCompra3"
-        android:layout_width="234dp"
-        android:layout_height="63dp"
+        android:layout_width="206dp"
+        android:layout_height="73dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/til_agregarListado"
         android:textAlignment="center"
-        android:textColor="@color/rojo"
-        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine3"
         app:layout_constraintEnd_toStartOf="@+id/guideline25"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/guideline22"
-        app:layout_constraintTop_toBottomOf="@+id/materialToolbar2" />
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar2"
+        app:layout_constraintVertical_bias="0.523" />
 
     <Button
         android:id="@+id/btn_guardar_agregar_listado_compra"
@@ -90,6 +91,8 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/rojo"
         android:text="@string/btn_guardar"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextMultiLine3"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine3"
         app:layout_constraintHorizontal_bias="0.848"
@@ -109,4 +112,25 @@
         app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine3"
         app:layout_constraintTop_toTopOf="@+id/editTextTextMultiLine3"
         app:layout_constraintVertical_bias="0.198" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline47"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.18" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline54"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.28" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.36" />
 </androidx.constraintlayout.widget.ConstraintLayout>

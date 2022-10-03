@@ -8,6 +8,20 @@
     android:background="@mipmap/background_background"
     tools:context=".MenuInicio">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline62"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.14" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline63"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.87" />
+
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
         android:layout_width="match_parent"
@@ -24,37 +38,38 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView4"
-        android:layout_width="80dp"
-        android:layout_height="104dp"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
         android:src="@mipmap/logo2"
         app:layout_constraintBottom_toTopOf="@+id/til_queQuieres"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/til_gestionaTuNegocio"
-        app:layout_constraintVertical_bias="0.288" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.9015048" />
+        app:layout_constraintGuide_percent="0.94" />
 
     <TextView
         android:id="@+id/til_gestionaTuNegocio"
-        android:layout_width="284dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="456dp"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="504dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/til_gestionaTuNegocio"
         android:textAlignment="center"
-        android:textColor="@color/orange"
+        android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline63"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline62"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
+        app:layout_constraintVertical_bias="0.733" />
 
     <TextView
         android:id="@+id/til_queQuieres"
@@ -62,51 +77,58 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:text="@string/til_queQuieres"
-        android:textColor="@color/orange"
+        android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_gestionaTuNegocio"
-        app:layout_constraintVertical_bias="0.234" />
-
-    <Button
-        android:id="@+id/btn_registrarProducto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/rojo_btn2"
-        android:text="@string/btn_registrarProducto"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_gestionaTuNegocio"
+        app:layout_constraintVertical_bias="0.247" />
+
+    <Button
+        android:id="@+id/btn_registrarProducto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/rojo_btn2"
+        android:text="@string/btn_registrarProducto"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintEnd_toStartOf="@+id/guideline63"
+        app:layout_constraintStart_toStartOf="@+id/guideline62"
         app:layout_constraintTop_toBottomOf="@+id/til_queQuieres"
         app:layout_constraintVertical_bias="0.203" />
 
     <Button
         android:id="@+id/btn_gestionar"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:backgroundTint="@color/rojo_btn2"
+        android:lineSpacingExtra="16sp"
         android:text="@string/btn_gestionar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/guideline63"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline62"
         app:layout_constraintTop_toBottomOf="@+id/btn_registrarProducto" />
 
     <Button
         android:id="@+id/btn_listado"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/rojo_btn2"
         android:text="@string/btn_listado"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline63"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline62"
         app:layout_constraintTop_toBottomOf="@+id/btn_gestionar"
-        app:layout_constraintVertical_bias="0.036" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_menu"
@@ -116,5 +138,12 @@
         app:layout_constraintStart_toStartOf="@+id/materialToolbar"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/menu_desplegable" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline59"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08071136" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

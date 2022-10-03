@@ -27,19 +27,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.91" />
+        app:layout_constraintGuide_percent="0.84" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline34"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.9151847" />
+        app:layout_constraintGuide_percent="0.95" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imagen_tienda2"
         android:layout_width="99dp"
         android:layout_height="84dp"
+        android:layout_marginTop="44dp"
         android:src="@mipmap/logo1_round"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,9 +50,10 @@
         android:id="@+id/sp_datos_tipos"
         android:layout_width="0dp"
         android:layout_height="70dp"
+        android:layout_marginTop="4dp"
         android:entries="@array/Tipo_de_producto"
         app:layout_constraintEnd_toStartOf="@+id/guideline16"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline15"
         app:layout_constraintTop_toTopOf="@+id/guideline48" />
 
@@ -67,7 +69,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -131,14 +133,18 @@
 
     <Button
         android:id="@+id/btn_agregarProducto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="220dp"
+        android:layout_height="60dp"
         android:backgroundTint="@color/rojo"
         android:text="@string/btn_agregarProducto"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline34"
+        app:layout_constraintEnd_toStartOf="@+id/guideline16"
+        app:layout_constraintHorizontal_bias="0.537"
         app:layout_constraintStart_toStartOf="@+id/guideline15"
         app:layout_constraintTop_toTopOf="@+id/guideline17"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.962" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline48"
