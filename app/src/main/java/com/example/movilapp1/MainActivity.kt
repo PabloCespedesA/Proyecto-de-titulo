@@ -21,15 +21,19 @@ class MainActivity : AppCompatActivity() {
         val btn_registrarAqui = findViewById<Button>(R.id.btn_registrarAqui)
 
         //Listener de botones
-
-
-
         btn_login.setOnClickListener {
             var user = til_usuario1.editText?.text.toString()
             var pass = til_clave1.editText?.text.toString()
             Toast.makeText(this@MainActivity,user+" "+pass,Toast.LENGTH_SHORT).show()
+
+            //Validaciones
+            val validate = Validate()
+            if(validate.validarNulo(user)) til_usuario1.error = getString(R.string.error_campo_vacio) else til_usuario1.error = ""
+            if(validate.validarNulo(pass)) til_clave1.error = getString(R.string.error_campo_vacio) else til_clave1.error = ""
+
             val intent = Intent (this@MainActivity,MenuInicio::class.java)
             startActivity(intent)
+
         }
 
         btn_registrarAqui.setOnClickListener {
@@ -37,7 +41,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
     }
+
+
 
     //Ciclo de vida
 
