@@ -103,4 +103,9 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
 
+    /*errores*/
+
+    <string name="error_campo_vacio">El campo es requerido</string>
+
+
 </resources>

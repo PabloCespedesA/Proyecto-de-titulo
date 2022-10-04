@@ -72,6 +72,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline37">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/container_nombre_negocio"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/til_nombreNegocio"
@@ -93,6 +94,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_pass_registro"
         android:layout_width="0dp"
         android:layout_height="53dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
