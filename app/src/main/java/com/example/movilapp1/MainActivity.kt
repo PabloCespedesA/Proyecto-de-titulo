@@ -31,9 +31,10 @@ class MainActivity : AppCompatActivity() {
             if(validate.validarNulo(user)) til_usuario1.error = getString(R.string.error_campo_vacio) else til_usuario1.error = ""
             if(validate.validarNulo(pass)) til_clave1.error = getString(R.string.error_campo_vacio) else til_clave1.error = ""
 
-            val intent = Intent (this@MainActivity,MenuInicio::class.java)
-            startActivity(intent)
+            if (!validate.validarNulo(user) && !validate.validarNulo(pass)){
 
+            val intent = Intent (this@MainActivity,MenuInicio::class.java)
+            startActivity(intent)}
         }
 
         btn_registrarAqui.setOnClickListener {
