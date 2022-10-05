@@ -40,8 +40,18 @@ class Registrar_producto : AppCompatActivity() {
             var ubicacion_producto = til_ubicacion_producto.editText?.text.toString()
             Log.i("DEBUG VAR","tipo_productos:"+tipo_productos+"nombre_producto:"+nombre_producto+"cantidad_producto:"+cantidad_producto+"precio_producto:"+precio_producto+"fecha_vencimiento:"+vencimiento_producto+"ubicacion_producto:"+ubicacion_producto)
 
+            //Validaciones
+            val validate = Validate()
+            if(validate.validarNombre(nombre_producto)) til_nombre_producto.error = getString(R.string.error_formato_string) else til_nombre_producto.error = ""
+            if(validate.validarNulo(nombre_producto)) til_nombre_producto.error = getString(R.string.error_campo_vacio) else til_nombre_producto.error = ""
+            if(validate.validarNulo(cantidad_producto)) til_cantidad.error = getString(R.string.error_campo_vacio) else til_cantidad.error = ""
+            if(validate.validarNulo(precio_producto)) til_precio_producto.error = getString(R.string.error_campo_vacio) else til_precio_producto.error = ""
+            if(validate.validarNulo(vencimiento_producto)) til_fecha_vencimiento.error = getString(R.string.error_campo_vacio) else til_fecha_vencimiento.error = ""
+            if(validate.validarNulo(ubicacion_producto)) til_ubicacion_producto.error = getString(R.string.error_campo_vacio) else til_ubicacion_producto.error = ""
+
+            if (!validate.validarNulo(nombre_producto) && !validate.validarNulo(cantidad_producto) && !validate.validarNulo(precio_producto) && !validate.validarNulo(vencimiento_producto) && !validate.validarNulo(ubicacion_producto) && validate.validarNombre(nombre_producto)){
             val intent = Intent (this@Registrar_producto,inventario_todos_los_productos::class.java)
-            startActivity(intent)
+            startActivity(intent)}
         }
 
         til_fecha_vencimiento.editText?.setOnClickListener { v -> showDatePickerDialog() }

@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         val btn_login = findViewById<Button>(R.id.btn_login)
         val btn_registrarAqui = findViewById<Button>(R.id.btn_registrarAqui)
 
+        Log.i("DEBUG VAR","til_usuario1:"+til_usuario1+"til_clave1"+til_clave1)
+
         //Listener de botones
         btn_login.setOnClickListener {
             var user = til_usuario1.editText?.text.toString()
@@ -28,13 +30,16 @@ class MainActivity : AppCompatActivity() {
 
             //Validaciones
             val validate = Validate()
+            if(validate.validarNombre(user)) til_usuario1.error = getString(R.string.error_formato_string) else til_usuario1.error = ""
             if(validate.validarNulo(user)) til_usuario1.error = getString(R.string.error_campo_vacio) else til_usuario1.error = ""
             if(validate.validarNulo(pass)) til_clave1.error = getString(R.string.error_campo_vacio) else til_clave1.error = ""
 
-            if (!validate.validarNulo(user) && !validate.validarNulo(pass)){
-
+            if (!validate.validarNulo(user) && !validate.validarNulo(pass) && validate.validarNombre(user)){
             val intent = Intent (this@MainActivity,MenuInicio::class.java)
             startActivity(intent)}
+
+
+
         }
 
         btn_registrarAqui.setOnClickListener {

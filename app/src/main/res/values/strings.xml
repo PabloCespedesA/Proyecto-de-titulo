@@ -106,6 +106,8 @@
     /*errores*/
 
     <string name="error_campo_vacio">El campo es requerido</string>
+    <string name="error_formato_string">Caracteres no válidos</string>
+    <string name="error_formato_correo">Correo no valido</string>
 
 
 </resources>
