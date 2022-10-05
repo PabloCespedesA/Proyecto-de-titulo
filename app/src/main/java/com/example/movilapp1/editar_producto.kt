@@ -75,4 +75,3 @@ class editar_producto : AppCompatActivity() {
     }
 
     }
-}
