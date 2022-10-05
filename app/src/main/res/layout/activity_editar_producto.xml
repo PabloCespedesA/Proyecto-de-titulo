@@ -154,7 +154,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Spinner
-        android:id="@+id/tipo_producto_editar"
+        android:id="@+id/sp_datos_tipos_editar"
         android:layout_width="320dp"
         android:layout_height="53dp"
         android:entries="@array/Tipo_de_producto"
