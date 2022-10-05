@@ -23,7 +23,6 @@ class DatePickerFragment  (val listener:(day: Int,month: Int,year:Int)->Unit):Di
         //limitamos la fecha máxima
         /**picker.datePicker.maxDate = c.timeInMillis**/
         return picker
-
     }
 
 }
