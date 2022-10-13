@@ -37,9 +37,6 @@ class MainActivity : AppCompatActivity() {
             if (!validate.validarNulo(user) && !validate.validarNulo(pass) && validate.validarNombre(user)){
             val intent = Intent (this@MainActivity,MenuInicio::class.java)
             startActivity(intent)}
-
-
-
         }
 
         btn_registrarAqui.setOnClickListener {
