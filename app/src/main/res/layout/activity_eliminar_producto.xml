@@ -71,23 +71,6 @@
         app:layout_constraintStart_toStartOf="@+id/guideline26"
         app:layout_constraintTop_toBottomOf="@+id/materialToolbar8" />
 
-    <Button
-        android:id="@+id/button16"
-        android:layout_width="65dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="304dp"
-        android:backgroundTint="@color/rojo"
-        android:rotation="0"
-        app:icon="@drawable/vector_flecha"
-        app:iconPadding="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline13"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline11"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
     <TextView
         android:id="@+id/textView9"
         android:layout_width="0dp"

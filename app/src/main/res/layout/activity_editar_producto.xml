@@ -9,7 +9,7 @@
     tools:context=".editar_producto">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/txt_seleccionOpcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="104dp"
