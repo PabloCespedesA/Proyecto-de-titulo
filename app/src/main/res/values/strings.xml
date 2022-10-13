@@ -70,6 +70,7 @@
     <string name="til_precioProducto">Precio del producto</string>
     <string name="til_fechaVencimientoProducto">Fecha Vencimiento</string>
     <string name="til_ubicacionProducto">Ubicación en tienda</string>
+    <string name="txt_seleccionarOpcion">Seleccionar una Opción</string>
     <string name="btn_agregarProducto">Agregar producto</string>
 
     //*Listado de compras*//

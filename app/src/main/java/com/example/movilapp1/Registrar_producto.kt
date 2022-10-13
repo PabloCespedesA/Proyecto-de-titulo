@@ -24,7 +24,7 @@ class Registrar_producto : AppCompatActivity() {
 
         //poblar lista
         //Opciones que tendrá la lista
-        var lista = listOf("Seleccione una opción","Artículos de aseo","Dulces","Fiambrería","Fideos","Arroz","Sal","Azúcar","Dulces","Frutas y Verduras", "Útiles Escolares")
+        var lista = listOf("Artículos de aseo","Dulces","Fiambrería","Fideos","Arroz","Sal","Azúcar","Dulces","Frutas y Verduras", "Útiles Escolares")
         var adaptador = ArrayAdapter(this@Registrar_producto,android.R.layout.simple_spinner_dropdown_item,lista)
                 sp_datos_tipos.adapter = adaptador
 

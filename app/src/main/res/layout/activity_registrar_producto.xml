@@ -189,5 +189,16 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.69" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:text="@string/txt_seleccionarOpcion"
+        app:layout_constraintEnd_toStartOf="@+id/guideline16"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toTopOf="@+id/guideline17" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
