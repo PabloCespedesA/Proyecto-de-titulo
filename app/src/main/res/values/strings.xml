@@ -104,6 +104,11 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
 
+    /*Listado todos los productos*/
+    <string name="txt_todosLosProductos">Productos del Inventario</string>
+    <string name="txt_todosLosProductosSub">Todos los productos registrados</string>
+
+
     /*errores*/
 
     <string name="error_campo_vacio">El campo es requerido</string>

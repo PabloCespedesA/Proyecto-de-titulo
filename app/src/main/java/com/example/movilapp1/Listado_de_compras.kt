@@ -15,7 +15,7 @@ class Listado_de_compras : AppCompatActivity() {
 
 
         btn_lis1.setOnClickListener {
-            val intent = Intent (this@Listado_de_compras,detalle_listado_compras::class.java)
+            val intent = Intent (this@Listado_de_compras,Detalle_listado_compras::class.java)
             startActivity(intent)
         }
 

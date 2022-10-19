@@ -24,7 +24,7 @@ class MenuInicio : AppCompatActivity() {
         }
 
         btn_gestionar.setOnClickListener {
-            val intent = Intent (this@MenuInicio,menu_inventario_productos::class.java)
+            val intent = Intent (this@MenuInicio,Menu_inventario_productos::class.java)
             startActivity(intent)
         }
 

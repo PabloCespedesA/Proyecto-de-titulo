@@ -28,7 +28,10 @@
             android:name=".Registrar_producto"
             android:exported="false" />
         <activity
-            android:name=".menu_inventario_productos"
+            android:name=".Editar_producto"
+            android:exported="false" />
+        <activity
+            android:name=".Menu_inventario_productos"
             android:exported="false" />
         <activity
             android:name=".inventario_detalle_producto"
@@ -40,7 +43,7 @@
             android:name=".agregar_listado_compra"
             android:exported="false" />
         <activity
-            android:name=".inventario_todos_los_productos"
+            android:name=".Inventario_todos_los_productos"
             android:exported="false" />
         <activity
             android:name=".activity_eliminar_producto"
@@ -55,7 +58,7 @@
             android:name=".activity_confirmacion_eliminar_listado"
             android:exported="false" />
         <activity
-            android:name=".detalle_listado_compras"
+            android:name=".Detalle_listado_compras"
             android:exported="false" />
         <activity
             android:name=".MenuInicio"
