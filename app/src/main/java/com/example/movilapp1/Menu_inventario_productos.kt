@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 
-class menu_inventario_productos : AppCompatActivity() {
+class Menu_inventario_productos : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_inventario_productos)
@@ -18,12 +18,12 @@ class menu_inventario_productos : AppCompatActivity() {
 
         btn_productos.setOnClickListener {
             val intent =
-                Intent(this@menu_inventario_productos, inventario_todos_los_productos::class.java)
+                Intent(this@Menu_inventario_productos, Inventario_todos_los_productos::class.java)
             startActivity(intent)
         }
 
         btn_tipo_producto.setOnClickListener {
-            val intent = Intent(this@menu_inventario_productos, inventario_tipo::class.java)
+            val intent = Intent(this@Menu_inventario_productos, inventario_tipo::class.java)
             startActivity(intent)
         }
     }

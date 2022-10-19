@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/background_background"
-    tools:context=".detalle_listado_compras">
+    tools:context=".Detalle_listado_compras">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar10"
@@ -61,7 +61,10 @@
         android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toStartOf="@+id/guideline14"
-        app:layout_constraintStart_toStartOf="@+id/guideline11" />
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="@+id/guideline11"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar10"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine"
@@ -76,7 +79,6 @@
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toBottomOf="@+id/til_detalleListadoCompra"
-        app:layout_constraintVertical_bias="0.184"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView

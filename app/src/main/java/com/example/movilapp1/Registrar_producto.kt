@@ -50,7 +50,7 @@ class Registrar_producto : AppCompatActivity() {
             if(validate.validarNulo(ubicacion_producto)) til_ubicacion_producto.error = getString(R.string.error_campo_vacio) else til_ubicacion_producto.error = ""
 
             if (!validate.validarNulo(nombre_producto) && !validate.validarNulo(cantidad_producto) && !validate.validarNulo(precio_producto) && !validate.validarNulo(vencimiento_producto) && !validate.validarNulo(ubicacion_producto) && validate.validarNombre(nombre_producto)){
-            val intent = Intent (this@Registrar_producto,inventario_todos_los_productos::class.java)
+            val intent = Intent (this@Registrar_producto,Inventario_todos_los_productos::class.java)
             startActivity(intent)}
         }
 

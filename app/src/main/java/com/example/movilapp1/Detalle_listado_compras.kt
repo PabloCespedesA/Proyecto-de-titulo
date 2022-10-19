@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 
-class detalle_listado_compras : AppCompatActivity() {
+class Detalle_listado_compras : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalle_listado_compras)
@@ -14,12 +14,12 @@ class detalle_listado_compras : AppCompatActivity() {
         val btn_eliminar_detalle = findViewById<Button>(R.id.btn_deshacer_eliminar_listado)
 
         btn_guardar_detalle.setOnClickListener {
-            val intent = Intent (this@detalle_listado_compras,Listado_de_compras::class.java)
+            val intent = Intent (this@Detalle_listado_compras,Listado_de_compras::class.java)
             startActivity(intent)
         }
 
         btn_eliminar_detalle.setOnClickListener {
-            val intent = Intent (this@detalle_listado_compras,activity_confirmacion_eliminar_listado::class.java)
+            val intent = Intent (this@Detalle_listado_compras,activity_confirmacion_eliminar_listado::class.java)
             startActivity(intent)
         }
     }

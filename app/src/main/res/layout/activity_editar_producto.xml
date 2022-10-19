@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/background_background"
-    tools:context=".editar_producto">
+    tools:context=".Editar_producto">
 
     <TextView
         android:id="@+id/txt_seleccionOpcion"
@@ -214,5 +214,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.84541726" />
+
+    <TextView
+        android:id="@+id/txt_ejemplo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="169dp"
+        tools:layout_editor_absoluteY="98dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
