@@ -5,12 +5,20 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import androidx.room.Room
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.coroutines.launch
+import roomDataBase.Db
+import roomDataBase.entity.Usuario
 
 class Registro_usuario : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro_usuario)
+        //Inicializar la base de datos
+        val room = Room.databaseBuilder(this, Db::class.java,"database-tiendita").allowMainThreadQueries().build()
 
         /*Declaracion de variables */
         val til_usuario_registro = findViewById<TextInputLayout>(R.id.til_nombre_usuario_registro)
@@ -23,11 +31,11 @@ class Registro_usuario : AppCompatActivity() {
         val btn_inicia_sesion = findViewById<Button>(R.id.btn_inicia_sesion)
 
         btn_registrame.setOnClickListener {
-            var usuario_registro = til_usuario_registro.editText?.text.toString()
-            var negocio_registro = til_negocio_registro.editText?.text.toString()
-            var email_registro = til_email.editText?.text.toString()
-            var pass_registro = til_pass_registro.editText?.text.toString()
-            var pass_confirm_registro = til_pass_registro_confirmacion.editText?.text.toString()
+            val usuario_registro = til_usuario_registro.editText?.text.toString()
+            val negocio_registro = til_negocio_registro.editText?.text.toString()
+            val email_registro = til_email.editText?.text.toString()
+            val pass_registro = til_pass_registro.editText?.text.toString()
+            val pass_confirm_registro = til_pass_registro_confirmacion.editText?.text.toString()
             Log.i("DEBUG VAR","usuario: "+usuario_registro+"negocio: "+negocio_registro+"email: "+email_registro+"password: "+pass_registro+"pass_confirm: "+pass_confirm_registro)
 
             //Validaciones
@@ -48,9 +56,24 @@ class Registro_usuario : AppCompatActivity() {
                     if (!validate.validarNulo(email_registro) && validate.validarCorreo(email_registro))
                         if (!validate.validarNulo(pass_registro))
                             if (!validate.validarNulo(pass_confirm_registro)) {
-                                val intent = Intent(this@Registro_usuario, MenuInicio::class.java)
-                                startActivity(intent)
+                                //Insertar la informacion
+
+                                val usuario = Usuario(usuario_registro,negocio_registro,email_registro,pass_registro)
+                                lifecycleScope.launch {
+                                    val id = room.daoUsuario().agregarUsuario(usuario)
+                                    if(id>0){
+                                        Log.i("LOG_INSERT_USER",id.toString())
+                                        Toast.makeText(this@Registro_usuario,"Usuario registrado exitosamente",Toast.LENGTH_SHORT)
+                                        val intent = Intent(this@Registro_usuario,MainActivity::class.java)
+                                        startActivity(intent)
+                                    }
+                                    else{
+                                        Toast.makeText(this@Registro_usuario,"Nose pudo registrar el usuario",Toast.LENGTH_SHORT).show()
+                                    }
+                                }
                             }
+
+
 
             btn_inicia_sesion.setOnClickListener {
                 val intent = Intent(this@Registro_usuario, MainActivity::class.java)

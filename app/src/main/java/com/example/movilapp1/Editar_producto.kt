@@ -72,7 +72,7 @@ class Editar_producto : AppCompatActivity() {
                 Toast.makeText(this,"Elemento eliminado",Toast.LENGTH_LONG).show()//Modificar esto con la base de datos implementada
             }
             builder.setNegativeButton("Cancelar", null)
-            builder.setNeutralButton("No estoy seguro",null)
+            //builder.setNeutralButton("No estoy seguro",null)
             builder.show()
         }
 

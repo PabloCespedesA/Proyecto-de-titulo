@@ -48,7 +48,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_nombre_usuario_registro"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
@@ -65,7 +65,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_nombre_negocio_registro"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
@@ -82,7 +82,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_email"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toTopOf="@+id/guideline38">
@@ -96,7 +96,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_pass_registro"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintStart_toStartOf="@+id/guideline13"
         app:layout_constraintTop_toTopOf="@+id/guideline39">
@@ -110,7 +110,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_confirmar_contraseña"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/guideline11"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline13"

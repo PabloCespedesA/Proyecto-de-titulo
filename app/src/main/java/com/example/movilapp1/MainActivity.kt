@@ -6,12 +6,19 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import androidx.room.Room
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.coroutines.launch
+import roomDataBase.Db
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //Inicializar base de datos
+        val room = Room.databaseBuilder(this, Db::class.java,"database-tiendita").allowMainThreadQueries().build()
 
         //Declaramos las variables con los Id correspondientes
 
@@ -24,19 +31,20 @@ class MainActivity : AppCompatActivity() {
 
         //Listener de botones
         btn_login.setOnClickListener {
-            var user = til_usuario1.editText?.text.toString()
-            var pass = til_clave1.editText?.text.toString()
-            Toast.makeText(this@MainActivity,user+" "+pass,Toast.LENGTH_SHORT).show()
+            val user = til_usuario1.editText?.text.toString()
+            val pass = til_clave1.editText?.text.toString()
 
-            //Validaciones
-            val validate = Validate()
-            if(validate.validarNombre(user)) til_usuario1.error = getString(R.string.error_formato_string) else til_usuario1.error = ""
-            if(validate.validarNulo(user)) til_usuario1.error = getString(R.string.error_campo_vacio) else til_usuario1.error = ""
-            if(validate.validarNulo(pass)) til_clave1.error = getString(R.string.error_campo_vacio) else til_clave1.error = ""
+            //Validacion
+            lifecycleScope.launch {
+                val response = room.daoUsuario().login(user,pass)
+                if (response.size == 1) {
+                    Toast.makeText(this@MainActivity, "Login exitoso", Toast.LENGTH_LONG).show()
+                    val intent = Intent (this@MainActivity,MenuInicio::class.java)
+                    startActivity(intent)
+                }else til_clave1.error = "Usuario o contraseña incorrecta"
+            }
 
-            if (!validate.validarNulo(user) && !validate.validarNulo(pass) && validate.validarNombre(user)){
-            val intent = Intent (this@MainActivity,MenuInicio::class.java)
-            startActivity(intent)}
+
         }
 
         btn_registrarAqui.setOnClickListener {
