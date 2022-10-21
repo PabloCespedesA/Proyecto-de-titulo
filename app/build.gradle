@@ -36,6 +36,11 @@ android {
 }
 
 dependencies {
+
+    //Dependencias de Lottie
+    def lottieVersion = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
     //Dependencias de ROOM
     def room_version = "2.4.3"
     implementation "androidx.room:room-runtime:$room_version"
