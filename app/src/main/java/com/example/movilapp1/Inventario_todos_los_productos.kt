@@ -31,6 +31,5 @@ class Inventario_todos_los_productos : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-
     }
 }
