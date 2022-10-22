@@ -7,12 +7,23 @@ import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import androidx.room.Room
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.coroutines.launch
+import roomDataBase.Db
+import roomDataBase.entity.Producto
 
 class Registrar_producto : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registrar_producto)
+
+        //Inicializar la base de datos
+        val room =
+            Room.databaseBuilder(this, Db::class.java, "database-tiendita").allowMainThreadQueries()
+                .build()
 
         val sp_datos_tipos = findViewById<Spinner>(R.id.sp_datos_tipos)
         val til_nombre_producto = findViewById<TextInputLayout>(R.id.til_nombre_producto)
@@ -21,6 +32,7 @@ class Registrar_producto : AppCompatActivity() {
         val til_fecha_vencimiento = findViewById<TextInputLayout>(R.id.til_fecha_vencimiento)
         val til_ubicacion_producto = findViewById<TextInputLayout>(R.id.til_ubicacion_producto)
         val btn_agregarProducto = findViewById<Button>(R.id.btn_agregarProducto)
+        val mail:String=intent.getStringExtra("user").toString()
 
         //poblar lista
         //Opciones que tendrá la lista
@@ -38,6 +50,9 @@ class Registrar_producto : AppCompatActivity() {
             var precio_producto = til_precio_producto.editText?.text.toString()
             var vencimiento_producto = til_fecha_vencimiento.editText?.text.toString()
             var ubicacion_producto = til_ubicacion_producto.editText?.text.toString()
+            var id:Long = 0
+            val producto = Producto(tipo_productos,nombre_producto,cantidad_producto,precio_producto,vencimiento_producto,ubicacion_producto,mail)
+
             Log.i("DEBUG VAR","tipo_productos:"+tipo_productos+"nombre_producto:"+nombre_producto+"cantidad_producto:"+cantidad_producto+"precio_producto:"+precio_producto+"fecha_vencimiento:"+vencimiento_producto+"ubicacion_producto:"+ubicacion_producto)
 
             //Validaciones
@@ -50,8 +65,16 @@ class Registrar_producto : AppCompatActivity() {
             if(validate.validarNulo(ubicacion_producto)) til_ubicacion_producto.error = getString(R.string.error_campo_vacio) else til_ubicacion_producto.error = ""
 
             if (!validate.validarNulo(nombre_producto) && !validate.validarNulo(cantidad_producto) && !validate.validarNulo(precio_producto) && !validate.validarNulo(vencimiento_producto) && !validate.validarNulo(ubicacion_producto) && validate.validarNombre(nombre_producto)){
-            val intent = Intent (this@Registrar_producto,Inventario_todos_los_productos::class.java)
-            startActivity(intent)}
+                lifecycleScope.launch {
+                    id= room.daoProducto().agregarProducto(producto)
+                    if (id>0){
+                        Toast.makeText(this@Registrar_producto,"Producto registrado correctamente", Toast.LENGTH_SHORT).show()
+                        val intent = Intent (this@Registrar_producto,Inventario_todos_los_productos::class.java)
+                        intent.putExtra("mail",mail)
+                        startActivity(intent)
+                    }
+                }
+            }
         }
 
         til_fecha_vencimiento.editText?.setOnClickListener { v -> showDatePickerDialog() }
