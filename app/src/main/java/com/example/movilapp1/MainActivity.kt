@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
                 if (response.size == 1) {
                     Toast.makeText(this@MainActivity, "Login exitoso", Toast.LENGTH_LONG).show()
                     val intent = Intent (this@MainActivity,MenuInicio::class.java)
+                    intent.putExtra("user",user)
                     startActivity(intent)
                 }else til_clave1.error = "Usuario o contraseña incorrecta"
             }

@@ -4,10 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.Toast
+import android.widget.*
+import org.w3c.dom.Text
 
 class Inventario_todos_los_productos : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,7 +13,11 @@ class Inventario_todos_los_productos : AppCompatActivity() {
         setContentView(R.layout.activity_inventario_todos_los_productos)
 
         //referencias id
-        var lv_todos = findViewById<ListView>(R.id.lv_todos)
+        val lv_todos = findViewById<ListView>(R.id.lv_todos)
+
+
+
+
         val arrayAdapter: ArrayAdapter<*>
         val recetas = arrayOf("Receta1", "Receta2", "Receta3", "Receta4" )
         arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,recetas)

@@ -18,7 +18,9 @@ class Registro_usuario : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro_usuario)
         //Inicializar la base de datos
-        val room = Room.databaseBuilder(this, Db::class.java,"database-tiendita").allowMainThreadQueries().build()
+        val room =
+            Room.databaseBuilder(this, Db::class.java, "database-tiendita").allowMainThreadQueries()
+                .build()
 
         /*Declaracion de variables */
         val til_usuario_registro = findViewById<TextInputLayout>(R.id.til_nombre_usuario_registro)
@@ -36,7 +38,10 @@ class Registro_usuario : AppCompatActivity() {
             val email_registro = til_email.editText?.text.toString()
             val pass_registro = til_pass_registro.editText?.text.toString()
             val pass_confirm_registro = til_pass_registro_confirmacion.editText?.text.toString()
-            Log.i("DEBUG VAR","usuario: "+usuario_registro+"negocio: "+negocio_registro+"email: "+email_registro+"password: "+pass_registro+"pass_confirm: "+pass_confirm_registro)
+            Log.i(
+                "DEBUG VAR",
+                "usuario: " + usuario_registro + "negocio: " + negocio_registro + "email: " + email_registro + "password: " + pass_registro + "pass_confirm: " + pass_confirm_registro
+            )
 
             //Validaciones
             val validate = Validate()
@@ -53,33 +58,45 @@ class Registro_usuario : AppCompatActivity() {
 
             if (!validate.validarNulo(usuario_registro))
                 if (!validate.validarNulo(negocio_registro))
-                    if (!validate.validarNulo(email_registro) && validate.validarCorreo(email_registro))
+                    if (!validate.validarNulo(email_registro) && validate.validarCorreo(
+                            email_registro
+                        )
+                    )
                         if (!validate.validarNulo(pass_registro))
                             if (!validate.validarNulo(pass_confirm_registro)) {
                                 //Insertar la informacion
 
-                                val usuario = Usuario(usuario_registro,negocio_registro,email_registro,pass_registro)
+                                val usuario = Usuario(
+                                    usuario_registro,
+                                    negocio_registro,
+                                    email_registro,
+                                    pass_registro
+                                )
                                 lifecycleScope.launch {
                                     val id = room.daoUsuario().agregarUsuario(usuario)
-                                    if(id>0){
-                                        Log.i("LOG_INSERT_USER",id.toString())
-                                        Toast.makeText(this@Registro_usuario,"Usuario registrado exitosamente",Toast.LENGTH_SHORT)
-                                        val intent = Intent(this@Registro_usuario,MainActivity::class.java)
+                                    if (id > 0) {
+                                        Log.i("LOG_INSERT_USER", id.toString())
+                                        Toast.makeText(
+                                            this@Registro_usuario,
+                                            "Usuario registrado exitosamente",
+                                            Toast.LENGTH_SHORT
+                                        )
+                                        val intent =
+                                            Intent(this@Registro_usuario, MainActivity::class.java)
                                         startActivity(intent)
-                                    }
-                                    else{
-                                        Toast.makeText(this@Registro_usuario,"Nose pudo registrar el usuario",Toast.LENGTH_SHORT).show()
+                                    } else {
+                                        Toast.makeText(
+                                            this@Registro_usuario,
+                                            "Nose pudo registrar el usuario",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
                                     }
                                 }
                             }
-
-
-
-            btn_inicia_sesion.setOnClickListener {
-                val intent = Intent(this@Registro_usuario, MainActivity::class.java)
-                startActivity(intent)
-            }
-
+        }
+        btn_inicia_sesion.setOnClickListener {
+            val intent = Intent(this@Registro_usuario, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 }
