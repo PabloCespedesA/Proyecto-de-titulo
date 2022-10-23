@@ -16,6 +16,9 @@ interface DaoProducto {
     @Query("SELECT * FROM Producto WHERE user=:user")
     suspend fun obtenerProductoUsuario (user: String): List<Producto>
 
+    @Query("SELECT * FROM Producto WHERE nombre=:nombre")
+    suspend fun obtenerProductoPorNombre(nombre: String): List<Producto>
+
     @Insert
     suspend fun agregarProducto (Producto: Producto):Long
 
