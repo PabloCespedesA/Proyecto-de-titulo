@@ -6,13 +6,21 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.lifecycleScope
+import androidx.room.Room
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.coroutines.launch
+import roomDataBase.Db
 
 class Editar_producto : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_producto)
 
+        //Inicializar la base de datos
+        val room =
+            Room.databaseBuilder(this, Db::class.java, "database-tiendita").allowMainThreadQueries()
+                .build()
 
         val sp_datos_tipos_editar = findViewById<Spinner>(R.id.sp_datos_tipos_editar)
         val til_nombre_producto_editar = findViewById<TextInputLayout>(R.id.til_nombre_producto_editar)
@@ -22,18 +30,35 @@ class Editar_producto : AppCompatActivity() {
         val til_ubicacion_editar = findViewById<TextInputLayout>(R.id.til_ubicacion_editar)
         val btn_guardar_editar = findViewById<Button>(R.id.btn_guardar_editar)
         val btn_eliminar_editar = findViewById<Button>(R.id.btn_eliminar_editar)
+        var tv_id = findViewById<TextView>(R.id.tv_id)
         //ejemplo para recibir el intent con el dato de la vista anterior y mostrarlo aqui
         val txt_ejemplo =findViewById<TextView>(R.id.txt_ejemplo)
         val intent = getIntent()
         val datoRecibido = intent.getStringExtra("recetaSeleccionada").toString()
         txt_ejemplo.setText("$datoRecibido")
-
+        val mail:String= intent.getStringExtra("mail").toString()
+        val nombre:String= intent.getStringExtra("nombre").toString()
 
         //poblar lista
         //Opciones que tendrá la lista
         var lista = listOf("Artículos de aseo","Dulces","Fiambrería","Fideos","Arroz","Sal","Azúcar","Dulces","Frutas y Verduras", "Útiles Escolares")
         var adaptador = ArrayAdapter(this@Editar_producto,android.R.layout.simple_spinner_dropdown_item,lista)
         sp_datos_tipos_editar.adapter = adaptador
+
+        /*lifecycleScope.launch {
+            val respuesta= room.daoProducto().obtenerProductoPorNombre(nombre,mail)
+            if (respuesta.size==1){
+                for (elemento in respuesta){
+                    //sp_datos_tipos_editar.selectedItem
+                    til_nombre_producto_editar.editText?.setText(elemento.nombre.toString())
+                    til_cantidad_editar.editText?.setText(elemento.cantidad.toString())
+                    til_precio_editar.editText?.setText(elemento.precio.toString())
+                    til_vencimiento_editar.editText?.setText(elemento.fecha.toString())
+                    til_ubicacion_editar.editText?.setText(elemento.ubicacion.toString())
+                    tv_id.setText(elemento.id.toString())
+                }
+            }
+        }*/
 
         //listening
 

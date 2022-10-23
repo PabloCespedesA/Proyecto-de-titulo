@@ -32,7 +32,8 @@ class Registrar_producto : AppCompatActivity() {
         val til_fecha_vencimiento = findViewById<TextInputLayout>(R.id.til_fecha_vencimiento)
         val til_ubicacion_producto = findViewById<TextInputLayout>(R.id.til_ubicacion_producto)
         val btn_agregarProducto = findViewById<Button>(R.id.btn_agregarProducto)
-        val mail:String=intent.getStringExtra("user").toString()
+        //Recuperamos la variable del intent
+        val mail:String=intent.getStringExtra("mail").toString()
 
         //poblar lista
         //Opciones que tendrá la lista
@@ -53,7 +54,7 @@ class Registrar_producto : AppCompatActivity() {
             var id:Long = 0
             val producto = Producto(tipo_productos,nombre_producto,cantidad_producto,precio_producto,vencimiento_producto,ubicacion_producto,mail)
 
-            Log.i("DEBUG VAR","tipo_productos:"+tipo_productos+"nombre_producto:"+nombre_producto+"cantidad_producto:"+cantidad_producto+"precio_producto:"+precio_producto+"fecha_vencimiento:"+vencimiento_producto+"ubicacion_producto:"+ubicacion_producto)
+            Log.i("DEBUG VAR","tipo_productos :"+tipo_productos+"nombre_producto :"+nombre_producto+"cantidad_producto :"+cantidad_producto+"precio_producto :"+precio_producto+"fecha_vencimiento: "+vencimiento_producto+"ubicacion_producto: "+ubicacion_producto+"mail: "+mail)
 
             //Validaciones
             val validate = Validate()
