@@ -216,12 +216,15 @@
         app:layout_constraintGuide_percent="0.84541726" />
 
     <TextView
-        android:id="@+id/txt_ejemplo"
+        android:id="@+id/txt_usuarioActual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="169dp"
-        tools:layout_editor_absoluteY="98dp" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline44"
+        app:layout_constraintEnd_toStartOf="@+id/guideline11"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/guideline13" />
 
     <TextView
         android:id="@+id/tv_id"
