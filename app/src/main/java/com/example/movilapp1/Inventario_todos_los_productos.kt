@@ -29,7 +29,7 @@ class Inventario_todos_los_productos : AppCompatActivity() {
         var arrayAdapterListView: ArrayAdapter<*>
         val productos = ArrayList<String>()
         lifecycleScope.launch {
-            var respuesta=room.daoProducto().obtenerProductoUsuario(mail)
+            val respuesta=room.daoProducto().obtenerProductoUsuario(mail)
             for (indice in respuesta.indices){
                 productos.add(respuesta[indice].nombre.toString())
             }
@@ -43,7 +43,7 @@ class Inventario_todos_los_productos : AppCompatActivity() {
                 Toast.makeText(this@Inventario_todos_los_productos,"Escogido ${productos[position]}", Toast.LENGTH_SHORT).show()
                 //Redireccionar al presionar
                 val intent = Intent(this@Inventario_todos_los_productos,Editar_producto::class.java)
-                intent.putExtra("productoSeleccionado","${productos[position]}")
+                intent.putExtra("nombre","${productos[position]}")
                 intent.putExtra("mail",mail)
                 startActivity(intent)
             }
