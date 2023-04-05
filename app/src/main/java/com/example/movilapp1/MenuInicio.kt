@@ -32,19 +32,19 @@ class MenuInicio : AppCompatActivity() {
         var id:Long = 0
 
 
-        val mail:String = intent.getStringExtra("user").toString()
-        tv_user.setText("Hola Usuario ${mail}")
+        val cliente:String = intent.getStringExtra("user").toString()
+        tv_user.setText("Hola Usuario ${cliente}")
 
 
         btn_registrarProducto.setOnClickListener {
             val intent = Intent (this@MenuInicio,Registrar_producto::class.java)
-            intent.putExtra("mail",mail)
+            intent.putExtra("cliente",cliente)
             startActivity(intent)
         }
 
         btn_gestionar.setOnClickListener {
             val intent = Intent (this@MenuInicio,Inventario_todos_los_productos::class.java)
-            intent.putExtra("mail",mail)
+            intent.putExtra("cliente",cliente)
             startActivity(intent)
         }
 

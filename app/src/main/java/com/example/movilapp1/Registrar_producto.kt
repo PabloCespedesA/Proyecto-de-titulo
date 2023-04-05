@@ -33,7 +33,7 @@ class Registrar_producto : AppCompatActivity() {
         val til_ubicacion_producto = findViewById<TextInputLayout>(R.id.til_ubicacion_producto)
         val btn_agregarProducto = findViewById<Button>(R.id.btn_agregarProducto)
         //Recuperamos la variable del intent
-        val mail:String=intent.getStringExtra("mail").toString()
+        val cliente:String=intent.getStringExtra("cliente").toString()
 
         //poblar lista
         //Opciones que tendrá la lista
@@ -52,9 +52,9 @@ class Registrar_producto : AppCompatActivity() {
             var vencimiento_producto = til_fecha_vencimiento.editText?.text.toString()
             var ubicacion_producto = til_ubicacion_producto.editText?.text.toString()
             var id:Long = 0
-            val producto = Producto(tipo_productos,nombre_producto,cantidad_producto,precio_producto,vencimiento_producto,ubicacion_producto,mail)
+            val producto = Producto(tipo_productos,nombre_producto,cantidad_producto,precio_producto,vencimiento_producto,ubicacion_producto,cliente)
 
-            Log.i("DEBUG VAR","tipo_productos :"+tipo_productos+"nombre_producto :"+nombre_producto+"cantidad_producto :"+cantidad_producto+"precio_producto :"+precio_producto+"fecha_vencimiento: "+vencimiento_producto+"ubicacion_producto: "+ubicacion_producto+"mail: "+mail)
+            Log.i("DEBUG VAR","tipo_productos :"+tipo_productos+"nombre_producto :"+nombre_producto+"cantidad_producto :"+cantidad_producto+"precio_producto :"+precio_producto+"fecha_vencimiento: "+vencimiento_producto+"ubicacion_producto: "+ubicacion_producto+"cliente: "+cliente)
 
             //Validaciones
             val validate = Validate()
@@ -71,7 +71,7 @@ class Registrar_producto : AppCompatActivity() {
                     if (id>0){
                         Toast.makeText(this@Registrar_producto,"Producto registrado correctamente", Toast.LENGTH_SHORT).show()
                         val intent = Intent (this@Registrar_producto,Inventario_todos_los_productos::class.java)
-                        intent.putExtra("mail",mail)
+                        intent.putExtra("cliente",cliente)
                         startActivity(intent)
                     }
                 }
