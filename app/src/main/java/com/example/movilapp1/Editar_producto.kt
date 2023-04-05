@@ -33,11 +33,11 @@ class Editar_producto : AppCompatActivity() {
         val room =
             Room.databaseBuilder(this, Db::class.java, "database-tiendita").allowMainThreadQueries()
                 .build()
-        val mail: String = intent.getStringExtra("mail").toString()
+        val cliente: String = intent.getStringExtra("cliente").toString()
         val nombre: String = intent.getStringExtra("nombre").toString()
 
         var id:Long = 0
-        txt_usuarioActual.setText("Usuario ${mail}")
+        txt_usuarioActual.setText("Usuario ${cliente}")
         tv_id.setText("Producto: ${nombre}")
 
         //poblar lista
@@ -59,7 +59,7 @@ class Editar_producto : AppCompatActivity() {
         sp_datos_tipos_editar.adapter = adaptador
 
         lifecycleScope.launch {
-            val respuesta = room.daoProducto().obtenerProductoPorNombre(nombre, mail)
+            val respuesta = room.daoProducto().obtenerProductoPorNombre(nombre, cliente)
             if (respuesta.size == 1) {
                 for (elemento in respuesta) {
                     //sp_datos_tipos_editar.selectedItem

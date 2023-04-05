@@ -24,12 +24,12 @@ class Inventario_todos_los_productos : AppCompatActivity() {
         //referencias id
         val lv_todos = findViewById<ListView>(R.id.lv_todos)
         //Recuperamos la variable del intent
-        val mail:String=intent.getStringExtra("mail").toString()
+        val cliente:String=intent.getStringExtra("cliente").toString()
 
         var arrayAdapterListView: ArrayAdapter<*>
         val productos = ArrayList<String>()
         lifecycleScope.launch {
-            val respuesta=room.daoProducto().obtenerProductoUsuario(mail)
+            val respuesta = room.daoProducto().obtenerProductoUsuario(cliente)
             for (indice in respuesta.indices){
                 productos.add(respuesta[indice].nombre.toString())
             }
@@ -44,7 +44,7 @@ class Inventario_todos_los_productos : AppCompatActivity() {
                 //Redireccionar al presionar
                 val intent = Intent(this@Inventario_todos_los_productos,Editar_producto::class.java)
                 intent.putExtra("nombre","${productos[position]}")
-                intent.putExtra("mail",mail)
+                intent.putExtra("cliente",cliente)
                 startActivity(intent)
             }
         }
