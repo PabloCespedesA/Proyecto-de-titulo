@@ -5,6 +5,8 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import roomDataBase.entity.Producto
+import roomDataBase.entity.TipoProducto
+
 @Dao
 
 interface DaoProducto {
@@ -23,7 +25,7 @@ interface DaoProducto {
     suspend fun agregarProducto (Producto: Producto):Long
 
     @Query("UPDATE Producto SET tipos=:tipos,nombre=:nombre,cantidad=:cantidad,precio=:precio ,fecha=:fecha,ubicacion=:ubicacion WHERE id=:id")
-    suspend fun actualizarProductos (tipos:String,nombre:String,cantidad:String,precio:String,fecha:String,ubicacion:String,id:Long): Int
+    suspend fun actualizarProductos (tipos: TipoProducto,nombre:String,cantidad:String,precio:String,fecha:String,ubicacion:String,id:Long): Int
 
     @Query("DELETE FROM Producto WHERE id=:id")
     suspend fun borrarProducto (id:Long)

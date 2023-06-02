@@ -3,12 +3,19 @@ package roomDataBase.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+
+enum class TipoProducto(val tipo: String) {
+    FRUTAS("Frutas"),
+    VERDURAS("Verduras"),
+    LACTEOS("Lácteos"),
+    CARNES("Carnes")
+}
 @Entity
 
 class Producto {
     @PrimaryKey(autoGenerate = true)
     var id:Long=0
-    var tipos: String? = null
+    var tipos: TipoProducto? = null
     var nombre: String? = null
     var cantidad: String? = null
     var precio: String? = null
@@ -17,7 +24,7 @@ class Producto {
     var user: String? = null
 
     constructor(
-        tipos: String?,
+        tipos: TipoProducto?,
         nombre: String?,
         cantidad: String,
         precio: String,

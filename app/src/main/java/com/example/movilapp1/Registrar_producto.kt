@@ -14,6 +14,7 @@ import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
 import roomDataBase.Db
 import roomDataBase.entity.Producto
+import roomDataBase.entity.TipoProducto
 
 class Registrar_producto : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,15 +38,17 @@ class Registrar_producto : AppCompatActivity() {
 
         //poblar lista
         //Opciones que tendrá la lista
-        var lista = listOf("Artículos de aseo","Dulces","Fiambrería","Fideos","Arroz","Sal","Azúcar","Dulces","Frutas y Verduras", "Útiles Escolares")
-        var adaptador = ArrayAdapter(this@Registrar_producto,android.R.layout.simple_spinner_dropdown_item,lista)
-                sp_datos_tipos.adapter = adaptador
 
+        val lista = TipoProducto.values().map { it.tipo } // Crea una lista de Strings a partir del Enum
+        val adaptador = ArrayAdapter(this@Registrar_producto, android.R.layout.simple_spinner_dropdown_item, lista)
+        sp_datos_tipos.adapter = adaptador
+        
         //listening
 
         btn_agregarProducto.setOnClickListener {
-            //capturar valores
-            var tipo_productos = sp_datos_tipos.selectedItem.toString() //obtener valor del spinner
+            // Capturar valores
+            val tipoProductoIndex = sp_datos_tipos.selectedItemPosition // Obtener el índice del elemento seleccionado en el Spinner
+            val tipo_productos = TipoProducto.values()[tipoProductoIndex] // Obtener el TipoProducto correspondiente a partir del índice
             var nombre_producto = til_nombre_producto.editText?.text.toString()
             var cantidad_producto = til_cantidad.editText?.text.toString()
             var precio_producto = til_precio_producto.editText?.text.toString()

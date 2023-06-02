@@ -67,6 +67,7 @@
 
     <string name="til_nombreProducto">Nombre producto</string>
     <string name="til_cantidadProducto">Cantidad</string>
+    <string name="spinner_tipo_producto">Seleccione un tipo</string>>
     <string name="til_precioProducto">Precio del producto</string>
     <string name="til_fechaVencimientoProducto">Fecha Vencimiento</string>
     <string name="til_ubicacionProducto">Ubicación en tienda</string>
