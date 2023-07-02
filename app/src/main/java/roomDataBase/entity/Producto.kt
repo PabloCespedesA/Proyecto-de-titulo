@@ -8,7 +8,14 @@ enum class TipoProducto(val tipo: String) {
     FRUTAS("Frutas"),
     VERDURAS("Verduras"),
     LACTEOS("Lácteos"),
-    CARNES("Carnes")
+    CARNES("Carnes");
+
+    //solucionar problema de La diferencia de mayusculas y minusculas al actualizar el producto
+    companion object {
+        fun fromTipo(tipo: String): TipoProducto? {
+            return values().find { it.tipo == tipo }
+        }
+    }
 }
 @Entity
 

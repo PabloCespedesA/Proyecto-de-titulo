@@ -28,6 +28,7 @@ interface DaoProducto {
     suspend fun actualizarProductos (tipos: TipoProducto,nombre:String,cantidad:String,precio:String,fecha:String,ubicacion:String,id:Long): Int
 
     @Query("DELETE FROM Producto WHERE id=:id")
-    suspend fun borrarProducto (id:Long)
+    suspend fun borrarProducto (id:Long): Int
+
 
 }
