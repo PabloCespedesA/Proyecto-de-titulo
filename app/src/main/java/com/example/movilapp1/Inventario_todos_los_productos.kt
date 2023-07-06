@@ -8,7 +8,6 @@ import android.widget.*
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import kotlinx.coroutines.launch
-import org.w3c.dom.Text
 import roomDataBase.Db
 
 class Inventario_todos_los_productos : AppCompatActivity() {
@@ -26,6 +25,7 @@ class Inventario_todos_los_productos : AppCompatActivity() {
         //Recuperamos la variable del intent
         val cliente:String=intent.getStringExtra("cliente").toString()
 
+        //llenado de lista
         var arrayAdapterListView: ArrayAdapter<*>
         val productos = ArrayList<String>()
         lifecycleScope.launch {

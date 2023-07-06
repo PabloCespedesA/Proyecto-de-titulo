@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/menu_desplegable" />
+        app:navigationIcon="@drawable/background_foreground" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11"
@@ -50,77 +50,57 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9" />
 
-    <TextView
-        android:id="@+id/til_detalleListadoCompra"
-        android:layout_width="250dp"
-        android:layout_height="79dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/til_detalleListadoCompras"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline13"
-        app:layout_constraintEnd_toStartOf="@+id/guideline14"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="@+id/guideline11"
-        app:layout_constraintTop_toBottomOf="@+id/materialToolbar10"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/editTextTextMultiLine"
-        android:layout_width="290dp"
-        android:layout_height="323dp"
-        android:background="@color/rojo_btn2"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/guideline13"
-        app:layout_constraintEnd_toStartOf="@+id/guideline14"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="@+id/guideline11"
-        app:layout_constraintTop_toBottomOf="@+id/til_detalleListadoCompra"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="127dp"
-        android:layout_height="223dp"
-        android:text="@string/til_compra"
-        android:textColor="#ECE6E6"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_guardar_detalle_listado_compras"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine"
-        app:layout_constraintHorizontal_bias="0.22"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextMultiLine"
-        app:layout_constraintVertical_bias="0.21" />
-
     <Button
         android:id="@+id/btn_guardar_detalle_listado_compras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
         android:backgroundTint="@color/rojo"
         android:text="@string/btn_guardar"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextMultiLine"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine"
-        app:layout_constraintHorizontal_bias="0.251"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline13"
+        app:layout_constraintEnd_toStartOf="@+id/btn_deshacer_eliminar_listado"
+        app:layout_constraintStart_toStartOf="@+id/guideline11" />
 
     <Button
         android:id="@+id/btn_deshacer_eliminar_listado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="24dp"
         android:backgroundTint="@color/rojo"
         android:text="@string/btn_eliminar"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextMultiLine"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine"
-        app:layout_constraintHorizontal_bias="0.895"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline13"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_editar_titulo"
+        android:layout_width="316dp"
+        android:layout_height="69dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintStart_toStartOf="@+id/guideline11"
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar10">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="hint" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_editar_detalle"
+        android:layout_width="280dp"
+        android:layout_height="409dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintStart_toStartOf="@+id/guideline11"
+        app:layout_constraintTop_toTopOf="@+id/materialToolbar10">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="409dp"
+            android:hint="hint" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

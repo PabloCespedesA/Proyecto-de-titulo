@@ -18,7 +18,6 @@ enum class TipoProducto(val tipo: String) {
     }
 }
 @Entity
-
 class Producto {
     @PrimaryKey(autoGenerate = true)
     var id:Long=0
@@ -29,6 +28,7 @@ class Producto {
     var fecha: String? = null
     var ubicacion: String? = null
     var user: String? = null
+    var imagen_uri: String? = null
 
     constructor(
         tipos: TipoProducto?,
@@ -37,7 +37,8 @@ class Producto {
         precio: String,
         fecha: String?,
         ubicacion: String?,
-        user: String?
+        user: String?,
+        imagen_uri: String?
     ) {
         this.tipos = tipos
         this.nombre = nombre
@@ -46,10 +47,11 @@ class Producto {
         this.fecha = fecha
         this.ubicacion = ubicacion
         this.user = user
+        this.imagen_uri = imagen_uri
     }
 
     override fun toString(): String {
-        return "Producto(id=$id, tipos=$tipos, nombre=$nombre, cantidad=$cantidad, precio=$precio, fecha=$fecha, ubicacion=$ubicacion, user=$user)"
+        return "Producto(id=$id, tipos=$tipos, nombre=$nombre, cantidad=$cantidad, precio=$precio, fecha=$fecha, ubicacion=$ubicacion, user=$user, imagen_uri=$imagen_uri)"
     }
 
 }

@@ -1,24 +1,55 @@
 package com.example.movilapp1
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
 import roomDataBase.Db
 import roomDataBase.entity.TipoProducto
+import android.Manifest
+import android.app.Activity
+import android.content.pm.PackageManager
 
 class Editar_producto : AppCompatActivity() {
 
     var productoId: Long = 0
+    var imageUri: Uri? = null
+    private val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
+        if (uri != null) {
+            imageUri = uri
+
+            // Tomamos permisos persistentes en la URI
+            val takeFlags: Int = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+            contentResolver.takePersistableUriPermission(uri, takeFlags)
+
+
+            val ivEditarImagenProducto = findViewById<ImageView>(R.id.iv_editar_imagen_producto)
+            ivEditarImagenProducto.setImageURI(imageUri)
+        }
+    }
+    private val TAG = "EditarProducto"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_producto)
+
+        // Verificar permisos de almacenamiento
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            // Permiso otorgado, puedes continuar con la lógica relacionada con el almacenamiento
+            Log.v(TAG, "Permission is granted")
+        } else {
+            // Permiso no otorgado, debes solicitarlo al usuario
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)
+        }
 
         val sp_datos_tipos_editar = findViewById<Spinner>(R.id.sp_datos_tipos_editar)
         val til_nombre_producto_editar =
@@ -31,6 +62,14 @@ class Editar_producto : AppCompatActivity() {
         val btn_guardar_editar = findViewById<Button>(R.id.btn_guardar_editar)
         val btn_eliminar_editar = findViewById<Button>(R.id.btn_eliminar_editar)
         val tv_id = findViewById<TextView>(R.id.tv_id)
+
+        val btnEditarImagenProducto = findViewById<Button>(R.id.btn_editar_imagen_producto)
+        btnEditarImagenProducto.setOnClickListener {
+            getContent.launch("image/*")
+        }
+
+        val ivEditarImagenProducto = findViewById<ImageView>(R.id.iv_editar_imagen_producto)
+
 
         //Inicializar la base de datos
         val room =
@@ -75,8 +114,59 @@ class Editar_producto : AppCompatActivity() {
                     til_vencimiento_editar.editText?.setText(elemento.fecha.toString())
                     til_ubicacion_editar.editText?.setText(elemento.ubicacion.toString())
                     productoId = elemento.id
+
+                    // Convertimos el String a Uri y lo asignamos a imageUri
+                    imageUri = Uri.parse(elemento.imagen_uri)
+
+                    // Tomamos persistencia sobre los permisos de la URI
+                    try {
+                        val takeFlags: Int = Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+                        contentResolver.takePersistableUriPermission(imageUri!!, takeFlags)
+                        ivEditarImagenProducto.setImageURI(imageUri)
+                    } catch (e: SecurityException) {
+                        Log.e("MyApp", "Failed to take persistable uri permission", e)
+                    }
                 }
             }
+        }
+
+        // Este método nos permitirá tomar permisos persistentes para la URI de la imagen.
+        val getContent = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val uri = result.data?.data
+                if (uri != null) {
+                    try {
+                        contentResolver.takePersistableUriPermission(
+                            uri,
+                            Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+                        )
+                        imageUri = uri
+                        ivEditarImagenProducto.setImageURI(imageUri)
+
+                        val hasPermission = contentResolver.persistedUriPermissions.any { uriPermission ->
+                            uriPermission.uri == imageUri
+                        }
+
+                        if (hasPermission) {
+                            Log.d("MyApp", "Permiso persistente otorgado para la URI: $imageUri")
+                        } else {
+                            Log.d("MyApp", "No se pudo obtener el permiso persistente para la URI: $imageUri")
+                        }
+
+                        Log.d("MyApp", "URI de la imagen: $imageUri")
+                    } catch (e: Exception) {
+                        Log.e("MyApp", "Failed to take persistable uri permission", e)
+                    }
+                }
+            }
+        }
+
+        btnEditarImagenProducto.setOnClickListener {
+            val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+                addCategory(Intent.CATEGORY_OPENABLE)
+                type = "image/*"
+            }
+            getContent.launch(intent)
         }
 
         btn_guardar_editar.setOnClickListener {
@@ -88,9 +178,12 @@ class Editar_producto : AppCompatActivity() {
             val fecha = til_vencimiento_editar.editText?.text.toString()
             val ubicacion = til_ubicacion_editar.editText?.text.toString()
 
+            val imagen = imageUri.toString() // Convertimos el Uri a String para guardarlo en la base de datos
+
+
             lifecycleScope.launch {
                 // Llama a la función de actualización
-                val result = room.daoProducto().actualizarProductos(tipos, nombre, cantidad, precio, fecha, ubicacion, productoId)
+                val result = room.daoProducto().actualizarProductos(tipos, nombre, cantidad, precio, fecha, ubicacion, imagen, productoId)
 
                 // Comprueba si la actualización fue exitosa
                 if (result > 0) {

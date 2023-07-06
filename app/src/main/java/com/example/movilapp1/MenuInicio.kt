@@ -50,6 +50,7 @@ class MenuInicio : AppCompatActivity() {
 
         btn_listado.setOnClickListener {
             val intent = Intent (this@MenuInicio,Listado_de_compras::class.java)
+            intent.putExtra("cliente",cliente)
             startActivity(intent)
         }
 

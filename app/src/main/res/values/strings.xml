@@ -20,19 +20,16 @@
     <string name="btn_gestionar">Gestionar Inventario de Productos</string>
     <string name="btn_listado">Ir a Listado de Compras</string>
 
-    //*Detalle de listado compras*//
+    //*Agregar Listado Compras*//
+    <string name="til_agregarListadoTitulo">Escribe un título</string>
+    <string name="til_escribeTitulo">Escribe un título</string>
+    <string name="btn_agregarListado">Nuevo listado de compras</string>
 
-    <string name="til_detalleListadoCompras">Detalle Listado de Compras</string>
-    <string name="til_compra">Bonobon Collac Gomitas Mashmellow Chicle Big Time Calugones Mini Jaleas</string>
+    //*Detalle de listado compras*//
 
     <string name="btn_guardar">Guardar</string>
     <string name="btn_eliminar">Eliminar</string>
 
-    //*Agregar Listado Compra*//
-
-    <string name="til_escribeTitulo">Escribe un título</string>
-    <string name="til_agregarElementos">Agregar Elementos</string>
-    <string name="til_agregarListado">Nuevo listado de compras</string>
 
     //*Confirmación eliminar listado o producto*//
     <string name="confirm_eliminar_listado">¿Quieres eliminar este listado?</string>

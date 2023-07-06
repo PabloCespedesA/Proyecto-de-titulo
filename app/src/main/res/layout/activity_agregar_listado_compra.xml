@@ -18,9 +18,10 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/menu_desplegable" />
+        app:navigationIcon="@drawable/background_foreground" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline22"
@@ -41,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.95" />
+        app:layout_constraintGuide_percent="0.9" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline25"
@@ -49,41 +50,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9" />
-
-    <EditText
-        android:id="@+id/editTextTextMultiLine3"
-        android:layout_width="290dp"
-        android:layout_height="323dp"
-        android:background="@color/rojo_btn2"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="@string/til_escribeTitulo"
-        android:inputType="textMultiLine"
-        android:textAlignment="gravity"
-        android:textColorHint="#F3EFEF"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline24"
-        app:layout_constraintEnd_toStartOf="@+id/guideline25"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="@+id/guideline22"
-        app:layout_constraintTop_toBottomOf="@+id/materialToolbar2"
-        app:layout_constraintVertical_bias="0.646" />
-
-    <TextView
-        android:id="@+id/til_detalleListadoCompra3"
-        android:layout_width="206dp"
-        android:layout_height="73dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/til_agregarListado"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine3"
-        app:layout_constraintEnd_toStartOf="@+id/guideline25"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="@+id/guideline22"
-        app:layout_constraintTop_toBottomOf="@+id/materialToolbar2"
-        app:layout_constraintVertical_bias="0.523" />
 
     <Button
         android:id="@+id/btn_guardar_agregar_listado_compra"
@@ -93,44 +59,55 @@
         android:text="@string/btn_guardar"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextMultiLine3"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine3"
-        app:layout_constraintHorizontal_bias="0.848"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine3"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextMultiLine3"
-        app:layout_constraintVertical_bias="0.952" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline25"
+        app:layout_constraintHorizontal_bias="0.896"
+        app:layout_constraintStart_toStartOf="@+id/guideline22"
+        app:layout_constraintTop_toTopOf="@+id/guideline24"
+        app:layout_constraintVertical_bias="0.99" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/til_agregarElementos"
+        android:text="@string/btn_agregarListado"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/btn_guardar_agregar_listado_compra"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine3"
-        app:layout_constraintHorizontal_bias="0.164"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine3"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextMultiLine3"
-        app:layout_constraintVertical_bias="0.198" />
+        app:layout_constraintBottom_toTopOf="@+id/til_listaCompraNueva"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.258"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline47"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.18" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_listaCompraNueva"
+        android:layout_width="283dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="96dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline25"
+        app:layout_constraintStart_toStartOf="@+id/guideline22"
+        app:layout_constraintTop_toTopOf="@+id/materialToolbar2">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline54"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.28" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditText"
+            android:layout_width="268dp"
+            android:layout_height="60dp"
+            android:hint="hint" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline55"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.36" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_detalleListadoCompra"
+        android:layout_width="312dp"
+        android:layout_height="464dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline24"
+        app:layout_constraintEnd_toStartOf="@+id/guideline25"
+        app:layout_constraintStart_toStartOf="@+id/guideline22">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="452dp"
+            android:hint="hint" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

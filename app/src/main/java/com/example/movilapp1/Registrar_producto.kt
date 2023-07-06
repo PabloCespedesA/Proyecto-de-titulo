@@ -1,6 +1,7 @@
 package com.example.movilapp1
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -15,8 +16,68 @@ import kotlinx.coroutines.launch
 import roomDataBase.Db
 import roomDataBase.entity.Producto
 import roomDataBase.entity.TipoProducto
+import android.net.Uri
+import android.os.Build
+import android.widget.ImageView
+import androidx.activity.result.contract.ActivityResultContracts
+import android.Manifest
+import android.app.Activity
+import android.provider.MediaStore
+import android.view.View
+import androidx.core.app.ActivityCompat
+
 
 class Registrar_producto : AppCompatActivity() {
+
+    // Inicializar la variable para almacenar la URI de la imagen
+    var imageUri: Uri? = null
+
+    // Crear un ActivityResultContract para seleccionar una imagen
+    private val getContent = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            // Este código se ejecutará después de seleccionar la imagen
+            val uri = result.data?.data
+            if (uri != null) {
+                try {
+                    // Tomar permiso persistente
+                    contentResolver.takePersistableUriPermission(
+                        uri,
+                        Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+                    )
+                    imageUri = uri
+                    val ivProducto = findViewById<ImageView>(R.id.iv_product_image)
+                    ivProducto.setImageURI(imageUri)
+
+                    // Comprobar si ya se tienen los permisos
+                    val hasPermission = contentResolver.persistedUriPermissions.any { uriPermission ->
+                        uriPermission.uri == imageUri
+                    }
+
+                    if (hasPermission) {
+                        Log.d("MyApp", "Permiso persistente otorgado para la URI: $imageUri")
+                    } else {
+                        Log.d("MyApp", "No se pudo obtener el permiso persistente para la URI: $imageUri")
+                    }
+
+                    Log.d("MyApp", "URI de la imagen: $imageUri")
+                } catch (e: Exception) {
+                    Log.e("MyApp", "Failed to take persistable uri permission", e)
+                }
+            }
+        }
+    }
+
+    // Función para abrir el selector de imágenes
+    fun openImagePicker(view: View) {
+        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+            addCategory(Intent.CATEGORY_OPENABLE)
+            type = "image/*"
+        }
+        getContent.launch(intent)
+    }
+
+
+    private val TAG = "Registrar_producto"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registrar_producto)
@@ -33,6 +94,8 @@ class Registrar_producto : AppCompatActivity() {
         val til_fecha_vencimiento = findViewById<TextInputLayout>(R.id.til_fecha_vencimiento)
         val til_ubicacion_producto = findViewById<TextInputLayout>(R.id.til_ubicacion_producto)
         val btn_agregarProducto = findViewById<Button>(R.id.btn_agregarProducto)
+
+
         //Recuperamos la variable del intent
         val cliente:String=intent.getStringExtra("cliente").toString()
 
@@ -42,20 +105,37 @@ class Registrar_producto : AppCompatActivity() {
         val lista = TipoProducto.values().map { it.tipo } // Crea una lista de Strings a partir del Enum
         val adaptador = ArrayAdapter(this@Registrar_producto, android.R.layout.simple_spinner_dropdown_item, lista)
         sp_datos_tipos.adapter = adaptador
-        
-        //listening
+
+        // Solicitar permisos de almacenamiento
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                Log.v(TAG,"Permission is granted")
+            } else {
+                Log.v(TAG,"Permission is revoked")
+                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)
+            }
+        } else { //permission is automatically granted on sdk<23 upon installation
+            Log.v(TAG,"Permission is granted")
+        }
+
+        //seleccionar imagen
+        val btnSeleccionarImagen = findViewById<Button>(R.id.btn_seleccionar_imagen)
+        btnSeleccionarImagen.setOnClickListener { view ->
+            openImagePicker(view)
+        }
 
         btn_agregarProducto.setOnClickListener {
             // Capturar valores
-            val tipoProductoIndex = sp_datos_tipos.selectedItemPosition // Obtener el índice del elemento seleccionado en el Spinner
-            val tipo_productos = TipoProducto.values()[tipoProductoIndex] // Obtener el TipoProducto correspondiente a partir del índice
-            var nombre_producto = til_nombre_producto.editText?.text.toString()
-            var cantidad_producto = til_cantidad.editText?.text.toString()
-            var precio_producto = til_precio_producto.editText?.text.toString()
-            var vencimiento_producto = til_fecha_vencimiento.editText?.text.toString()
-            var ubicacion_producto = til_ubicacion_producto.editText?.text.toString()
+            val tipoProductoIndex = sp_datos_tipos.selectedItemPosition
+            val tipo_productos = TipoProducto.values()[tipoProductoIndex]
+            val nombre_producto = til_nombre_producto.editText?.text.toString()
+            val cantidad_producto = til_cantidad.editText?.text.toString()
+            val precio_producto = til_precio_producto.editText?.text.toString()
+            val vencimiento_producto = til_fecha_vencimiento.editText?.text.toString()
+            val ubicacion_producto = til_ubicacion_producto.editText?.text.toString()
+            val imagen_producto_uri = imageUri.toString()  // Convertimos la Uri de la imagen a String
             var id:Long = 0
-            val producto = Producto(tipo_productos,nombre_producto,cantidad_producto,precio_producto,vencimiento_producto,ubicacion_producto,cliente)
+            val producto = Producto(tipo_productos, nombre_producto, cantidad_producto, precio_producto, vencimiento_producto, ubicacion_producto, cliente, imagen_producto_uri) // Añadimos el URI de la imagen al construir el Producto
 
             Log.i("DEBUG VAR","tipo_productos :"+tipo_productos+"nombre_producto :"+nombre_producto+"cantidad_producto :"+cantidad_producto+"precio_producto :"+precio_producto+"fecha_vencimiento: "+vencimiento_producto+"ubicacion_producto: "+ubicacion_producto+"cliente: "+cliente)
 
