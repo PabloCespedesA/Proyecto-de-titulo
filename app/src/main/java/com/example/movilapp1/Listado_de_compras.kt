@@ -24,7 +24,13 @@ class Listado_de_compras : AppCompatActivity() {
         val lv_todasListaCompras = findViewById<ListView>(R.id.lv_todasListaCompras)
         //Recuperamos la variable del intent
         val cliente:String=intent.getStringExtra("cliente").toString()
+        val btn_atras_listado_compras = findViewById<Button>(R.id.btn_atras_listado_compras)
 
+        btn_atras_listado_compras.setOnClickListener {
+            val intent = Intent (this@Listado_de_compras,MenuInicio::class.java)
+            intent.putExtra("cliente",cliente)
+            startActivity(intent)
+        }
 
         //Llenado de lista
         var arrayAdapterListView: ArrayAdapter<*>

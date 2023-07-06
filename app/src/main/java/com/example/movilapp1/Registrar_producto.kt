@@ -94,10 +94,18 @@ class Registrar_producto : AppCompatActivity() {
         val til_fecha_vencimiento = findViewById<TextInputLayout>(R.id.til_fecha_vencimiento)
         val til_ubicacion_producto = findViewById<TextInputLayout>(R.id.til_ubicacion_producto)
         val btn_agregarProducto = findViewById<Button>(R.id.btn_agregarProducto)
+        val btn_atras_registrar_producto = findViewById<Button>(R.id.btn_atras_registrar_producto)
 
 
         //Recuperamos la variable del intent
         val cliente:String=intent.getStringExtra("cliente").toString()
+
+        btn_atras_registrar_producto.setOnClickListener {
+            val intent = Intent (this@Registrar_producto,Inventario_todos_los_productos::class.java)
+            intent.putExtra("cliente",cliente)
+            startActivity(intent)
+            finish()
+        }
 
         //poblar lista
         //Opciones que tendrá la lista
@@ -140,23 +148,59 @@ class Registrar_producto : AppCompatActivity() {
             Log.i("DEBUG VAR","tipo_productos :"+tipo_productos+"nombre_producto :"+nombre_producto+"cantidad_producto :"+cantidad_producto+"precio_producto :"+precio_producto+"fecha_vencimiento: "+vencimiento_producto+"ubicacion_producto: "+ubicacion_producto+"cliente: "+cliente)
 
             //Validaciones
+            //Validaciones
             val validate = Validate()
-            if(validate.validarNombre(nombre_producto)) til_nombre_producto.error = getString(R.string.error_formato_string) else til_nombre_producto.error = ""
-            if(validate.validarNulo(nombre_producto)) til_nombre_producto.error = getString(R.string.error_campo_vacio) else til_nombre_producto.error = ""
-            if(validate.validarNulo(cantidad_producto)) til_cantidad.error = getString(R.string.error_campo_vacio) else til_cantidad.error = ""
-            if(validate.validarNulo(precio_producto)) til_precio_producto.error = getString(R.string.error_campo_vacio) else til_precio_producto.error = ""
-            if(validate.validarNulo(vencimiento_producto)) til_fecha_vencimiento.error = getString(R.string.error_campo_vacio) else til_fecha_vencimiento.error = ""
-            if(validate.validarNulo(ubicacion_producto)) til_ubicacion_producto.error = getString(R.string.error_campo_vacio) else til_ubicacion_producto.error = ""
 
-            if (!validate.validarNulo(nombre_producto) && !validate.validarNulo(cantidad_producto) && !validate.validarNulo(precio_producto) && !validate.validarNulo(vencimiento_producto) && !validate.validarNulo(ubicacion_producto) && validate.validarNombre(nombre_producto)){
-                lifecycleScope.launch {
-                    id= room.daoProducto().agregarProducto(producto)
-                    if (id>0){
-                        Toast.makeText(this@Registrar_producto,"Producto registrado correctamente", Toast.LENGTH_SHORT).show()
-                        val intent = Intent (this@Registrar_producto,Inventario_todos_los_productos::class.java)
-                        intent.putExtra("cliente",cliente)
-                        startActivity(intent)
-                    }
+            if(!validate.validarNombre(nombre_producto)) {
+                til_nombre_producto.error = getString(R.string.error_formato_string)
+                return@setOnClickListener
+            } else {
+                til_nombre_producto.error = ""
+            }
+
+            if(validate.validarNulo(nombre_producto)) {
+                til_nombre_producto.error = getString(R.string.error_campo_vacio)
+                return@setOnClickListener
+            } else {
+                til_nombre_producto.error = ""
+            }
+
+            if(validate.validarNulo(cantidad_producto)) {
+                til_cantidad.error = getString(R.string.error_campo_vacio)
+                return@setOnClickListener
+            } else {
+                til_cantidad.error = ""
+            }
+
+            if(validate.validarNulo(precio_producto)) {
+                til_precio_producto.error = getString(R.string.error_campo_vacio)
+                return@setOnClickListener
+            } else {
+                til_precio_producto.error = ""
+            }
+
+            if(validate.validarNulo(vencimiento_producto)) {
+                til_fecha_vencimiento.error = getString(R.string.error_campo_vacio)
+                return@setOnClickListener
+            } else {
+                til_fecha_vencimiento.error = ""
+            }
+
+            if(validate.validarNulo(ubicacion_producto)) {
+                til_ubicacion_producto.error = getString(R.string.error_campo_vacio)
+                return@setOnClickListener
+            } else {
+                til_ubicacion_producto.error = ""
+            }
+
+            // Si todas las validaciones son correctas, entonces se puede agregar el producto
+            lifecycleScope.launch {
+                id= room.daoProducto().agregarProducto(producto)
+                if (id>0){
+                    Toast.makeText(this@Registrar_producto,"Producto registrado correctamente", Toast.LENGTH_SHORT).show()
+                    val intent = Intent (this@Registrar_producto,Inventario_todos_los_productos::class.java)
+                    intent.putExtra("cliente",cliente)
+                    startActivity(intent)
                 }
             }
         }

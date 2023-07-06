@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent (this@MainActivity,MenuInicio::class.java)
                     intent.putExtra("user",user)
                     startActivity(intent)
+                    finish()
                 }else til_clave1.error = "Usuario o contraseña incorrecta"
             }
 

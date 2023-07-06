@@ -11,8 +11,13 @@ class Validate {
     }
     /*validar formato nombre con expresion regular*/
     fun validarNombre (nombre: String):Boolean{
-        val pattern = Pattern.compile("^[a-zA-Z]+\$")
+        val pattern = Pattern.compile("^[a-zA-Z\\s]+\$") // Se agregó \\s para aceptar espacios
         return pattern.matcher(nombre).matches()
+    }
+    /*validar cantidad de producto */
+    fun validarCantidad (cantidad: String):Boolean{
+        val num = cantidad.toIntOrNull()
+        return num != null && num in 1..9999 // Retorna verdadero si la cantidad es un número entre 1 y 9999
     }
     /*validar correo*/
     fun validarCorreo (correo: String):Boolean{

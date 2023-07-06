@@ -30,5 +30,7 @@ interface DaoProducto {
     @Query("DELETE FROM Producto WHERE id=:id")
     suspend fun borrarProducto (id:Long): Int
 
+    @Query("SELECT * FROM Producto WHERE user=:user AND nombre LIKE '%' || :search || '%'")
+    suspend fun obtenerProductosPorBusqueda(user: String, search: String): List<Producto>
 
 }

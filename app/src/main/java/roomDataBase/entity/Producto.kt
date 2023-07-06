@@ -5,10 +5,16 @@ import androidx.room.PrimaryKey
 
 
 enum class TipoProducto(val tipo: String) {
-    FRUTAS("Frutas"),
-    VERDURAS("Verduras"),
+    BEBIDAS("Bebidas"),
+    CONGELADOS("Congelados"),
+    DULCES("Dúlces"),
+    FRUTAS_Y_VERDURAS("Frutas y verduras"),
+    HELADOS("Helados"),
     LACTEOS("Lácteos"),
-    CARNES("Carnes");
+    NO_PERECIBLES("No perecibles"),
+    OTROS("Otros"),
+    SNACK("Snack"),
+    UTILES_ESCOLARES("Útiles escolares");
 
     //solucionar problema de La diferencia de mayusculas y minusculas al actualizar el producto
     companion object {

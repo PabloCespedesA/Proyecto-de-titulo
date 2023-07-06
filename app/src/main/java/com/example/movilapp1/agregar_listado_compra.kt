@@ -26,10 +26,18 @@ class agregar_listado_compra : AppCompatActivity() {
         val til_listaCompraNueva = findViewById<TextInputLayout>(R.id.til_listaCompraNueva)
         val til_detalleListadoCompra = findViewById<TextInputLayout>(R.id.til_detalleListadoCompra)
         val btn_guardar_agregar_listado_compra = findViewById<Button>(R.id.btn_guardar_agregar_listado_compra)
+        val btn_atras_agregar_listado_compra = findViewById<Button>(R.id.btn_atras_agregar_listado_compra)
 
 
         //Recuperamos la variable del intent
         val cliente:String=intent.getStringExtra("cliente").toString()
+
+        btn_atras_agregar_listado_compra.setOnClickListener {
+            val intent = Intent (this@agregar_listado_compra,Listado_de_compras::class.java)
+            intent.putExtra("cliente",cliente)
+            startActivity(intent)
+            finish()
+        }
 
         btn_guardar_agregar_listado_compra.setOnClickListener {
             // Capturar valores

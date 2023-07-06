@@ -45,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/menu_desplegable" />
+        app:navigationIcon="@drawable/background_foreground" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView4"

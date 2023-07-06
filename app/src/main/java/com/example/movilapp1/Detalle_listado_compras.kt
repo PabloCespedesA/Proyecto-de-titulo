@@ -25,6 +25,7 @@ class Detalle_listado_compras : AppCompatActivity() {
         val til_editar_detalle = findViewById<TextInputLayout>(R.id.til_editar_detalle)
         val btn_guardar_detalle = findViewById<Button>(R.id.btn_guardar_detalle_listado_compras)
         val btn_eliminar_detalle = findViewById<Button>(R.id.btn_deshacer_eliminar_listado)
+        val btn_atras_detalle_listado = findViewById<Button>(R.id.btn_atras_detalle_listado)
 
         //Inicializar la base de datos
         val room =
@@ -32,6 +33,13 @@ class Detalle_listado_compras : AppCompatActivity() {
                 .build()
         val cliente: String = intent.getStringExtra("cliente").toString()
         val nombre: String = intent.getStringExtra("nombre").toString()
+
+        btn_atras_detalle_listado.setOnClickListener {
+            val intent = Intent (this@Detalle_listado_compras,Listado_de_compras::class.java)
+            intent.putExtra("cliente",cliente)
+            startActivity(intent)
+            finish()
+        }
 
         //poblar lista
 

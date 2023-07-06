@@ -11,31 +11,57 @@ import kotlinx.coroutines.launch
 import roomDataBase.Db
 
 class Inventario_todos_los_productos : AppCompatActivity() {
+
+    private lateinit var room: Db
+    private lateinit var cliente: String
+    private lateinit var lv_todos: ListView
+    private val productos = ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_inventario_todos_los_productos)
 
         //Inicializar la base de datos
-        val room =
-            Room.databaseBuilder(this, Db::class.java, "database-tiendita").allowMainThreadQueries()
-                .build()
+                room = Room.databaseBuilder(this, Db::class.java, "database-tiendita").allowMainThreadQueries()
+                    .build()
+
 
         //referencias id
-        val lv_todos = findViewById<ListView>(R.id.lv_todos)
-        //Recuperamos la variable del intent
-        val cliente:String=intent.getStringExtra("cliente").toString()
 
-        //llenado de lista
-        var arrayAdapterListView: ArrayAdapter<*>
-        val productos = ArrayList<String>()
-        lifecycleScope.launch {
-            val respuesta = room.daoProducto().obtenerProductoUsuario(cliente)
-            for (indice in respuesta.indices){
-                productos.add(respuesta[indice].nombre.toString())
+        val btn_atras_inventario_todos = findViewById<Button>(R.id.btn_atras_inventario_todos)
+        val btn_agregar_producto_listado = findViewById<Button>(R.id.btn_agregar_producto_listado)
+        val searchView = findViewById<androidx.appcompat.widget.SearchView>(R.id.seach_buscador_productos)
+
+        //Recuperamos la variable del intent
+        cliente = intent.getStringExtra("cliente").toString()
+
+        lv_todos = findViewById<ListView>(R.id.lv_todos)
+
+        //Buscador
+        searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return true
             }
-            arrayAdapterListView=ArrayAdapter(this@Inventario_todos_los_productos, android.R.layout.simple_list_item_1,productos)
-            lv_todos.adapter = arrayAdapterListView
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                actualizarListaProductos(newText)
+                return true
+            }
+        })
+
+        actualizarListaProductos("")
+
+        btn_atras_inventario_todos.setOnClickListener {
+            val intent = Intent (this@Inventario_todos_los_productos,MenuInicio::class.java)
+            intent.putExtra("cliente",cliente)
+            startActivity(intent)
         }
+
+        btn_agregar_producto_listado.setOnClickListener {
+            val intent = Intent (this@Inventario_todos_los_productos,Registrar_producto::class.java)
+            intent.putExtra("cliente",cliente)
+            startActivity(intent)
+        }
+
 
         //generar accion al presionar
         lv_todos.onItemClickListener = object : AdapterView.OnItemClickListener{
@@ -49,4 +75,17 @@ class Inventario_todos_los_productos : AppCompatActivity() {
             }
         }
     }
+
+    private fun actualizarListaProductos(textoBusqueda: String) {
+        productos.clear()
+        lifecycleScope.launch {
+            val respuesta = room.daoProducto().obtenerProductosPorBusqueda(cliente, textoBusqueda)
+            for (indice in respuesta.indices){
+                productos.add(respuesta[indice].nombre.toString())
+            }
+            val arrayAdapterListView = ArrayAdapter(this@Inventario_todos_los_productos, android.R.layout.simple_list_item_1, productos)
+            lv_todos.adapter = arrayAdapterListView
+        }
+    }
+
 }

@@ -61,15 +61,8 @@ class Editar_producto : AppCompatActivity() {
         val txt_usuarioActual = findViewById<TextView>(R.id.txt_usuarioActual)
         val btn_guardar_editar = findViewById<Button>(R.id.btn_guardar_editar)
         val btn_eliminar_editar = findViewById<Button>(R.id.btn_eliminar_editar)
+        val btn_atras_editar_producto = findViewById<Button>(R.id.btn_atras_editar_producto)
         val tv_id = findViewById<TextView>(R.id.tv_id)
-
-        val btnEditarImagenProducto = findViewById<Button>(R.id.btn_editar_imagen_producto)
-        btnEditarImagenProducto.setOnClickListener {
-            getContent.launch("image/*")
-        }
-
-        val ivEditarImagenProducto = findViewById<ImageView>(R.id.iv_editar_imagen_producto)
-
 
         //Inicializar la base de datos
         val room =
@@ -77,6 +70,20 @@ class Editar_producto : AppCompatActivity() {
                 .build()
         val cliente: String = intent.getStringExtra("cliente").toString()
         val nombre: String = intent.getStringExtra("nombre").toString()
+
+        btn_atras_editar_producto.setOnClickListener {
+            val intent = Intent (this@Editar_producto,Inventario_todos_los_productos::class.java)
+            intent.putExtra("cliente",cliente)
+            startActivity(intent)
+            finish()
+        }
+
+        val btnEditarImagenProducto = findViewById<Button>(R.id.btn_editar_imagen_producto)
+        btnEditarImagenProducto.setOnClickListener {
+            getContent.launch("image/*")
+        }
+
+        val ivEditarImagenProducto = findViewById<ImageView>(R.id.iv_editar_imagen_producto)
 
         var id:Long = 0
         txt_usuarioActual.setText("Usuario ${cliente}")
