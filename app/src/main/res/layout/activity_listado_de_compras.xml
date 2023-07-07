@@ -5,14 +5,13 @@
     android:id="@+id/view_listado"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/background_background"
+    android:background="@drawable/aquamarine"
     tools:context=".Listado_de_compras">
 
     <TextView
         android:id="@+id/listado_compras"
         android:layout_width="204dp"
         android:layout_height="36dp"
-        android:layout_marginTop="36dp"
         android:text="@string/til_listadoCompras"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -21,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/guideline21" />
 
     <ListView
         android:id="@+id/lv_todasListaCompras"
@@ -30,7 +29,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline26"
         app:layout_constraintVertical_bias="0.497" />
 
     <Button
@@ -47,10 +46,25 @@
         android:id="@+id/btn_atras_listado_compras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/morado"
         android:text="@string/menu_home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.067031465" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

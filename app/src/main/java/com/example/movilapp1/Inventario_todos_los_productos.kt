@@ -34,6 +34,8 @@ class Inventario_todos_los_productos : AppCompatActivity() {
         //Recuperamos la variable del intent
         cliente = intent.getStringExtra("cliente").toString()
 
+
+
         lv_todos = findViewById<ListView>(R.id.lv_todos)
 
         //Buscador
@@ -48,12 +50,15 @@ class Inventario_todos_los_productos : AppCompatActivity() {
             }
         })
 
-        actualizarListaProductos("")
+        lifecycleScope.launch {
+            actualizarListaProductos("")
+        }
 
         btn_atras_inventario_todos.setOnClickListener {
             val intent = Intent (this@Inventario_todos_los_productos,MenuInicio::class.java)
             intent.putExtra("cliente",cliente)
             startActivity(intent)
+            finish()
         }
 
         btn_agregar_producto_listado.setOnClickListener {
@@ -76,6 +81,17 @@ class Inventario_todos_los_productos : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        //Inicializar la base de datos
+        room = Room.databaseBuilder(this, Db::class.java, "database-tiendita").allowMainThreadQueries()
+            .build()
+        actualizarListaProductos("")
+    }
+
+
+
+
     private fun actualizarListaProductos(textoBusqueda: String) {
         productos.clear()
         lifecycleScope.launch {
@@ -88,4 +104,6 @@ class Inventario_todos_los_productos : AppCompatActivity() {
         }
     }
 
+
 }
+

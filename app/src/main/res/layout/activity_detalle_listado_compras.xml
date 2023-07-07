@@ -5,22 +5,18 @@
     android:id="@+id/view_detalle_listado"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/background_background"
+    android:background="@drawable/aquamarine"
     tools:context=".Detalle_listado_compras">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/materialToolbar10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/orange"
-        android:foreground="@mipmap/logo3"
-        android:foregroundGravity="center_horizontal"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imagen_tienda3"
+        android:layout_width="71dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="4dp"
+        android:src="@mipmap/logo1_round"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/background_foreground" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11"
@@ -34,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.07" />
+        app:layout_constraintGuide_percent="0.13" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline13"
@@ -76,31 +72,30 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_editar_titulo"
-        android:layout_width="316dp"
-        android:layout_height="69dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/guideline14"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
-        app:layout_constraintTop_toBottomOf="@+id/materialToolbar10">
+        app:layout_constraintTop_toTopOf="@+id/guideline12">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:layout_height="match_parent"
+            android:hint="@string/til_titulo" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_editar_detalle"
-        android:layout_width="280dp"
-        android:layout_height="409dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/guideline14"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
-        app:layout_constraintTop_toTopOf="@+id/materialToolbar10">
+        app:layout_constraintTop_toTopOf="@+id/guideline20">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="409dp"
-            android:hint="hint" />
+            android:layout_height="match_parent"
+            android:hint="@string/til_listadoCompras" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -108,10 +103,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:backgroundTint="@color/morado"
         android:text="@string/btn_atras"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25581396" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,8 +45,6 @@ class MainActivity : AppCompatActivity() {
                     finish()
                 }else til_clave1.error = "Usuario o contraseña incorrecta"
             }
-
-
         }
 
         btn_registrarAqui.setOnClickListener {

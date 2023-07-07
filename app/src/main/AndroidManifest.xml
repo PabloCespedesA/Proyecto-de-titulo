@@ -33,15 +33,6 @@
             android:name=".Editar_producto"
             android:exported="false" />
         <activity
-            android:name=".Menu_inventario_productos"
-            android:exported="false" />
-        <activity
-            android:name=".inventario_detalle_producto"
-            android:exported="false" />
-        <activity
-            android:name=".inventario_tipo"
-            android:exported="false" />
-        <activity
             android:name=".agregar_listado_compra"
             android:exported="false" />
         <activity

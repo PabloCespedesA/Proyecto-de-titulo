@@ -14,4 +14,8 @@
     <color name="rojo_btn1">#DA2D2D</color>
     <color name="rojo_btn2">#B3F32F2F</color>
     <color name="amarillo_link">#F5EF49</color>
+    <color name="aquamarine_palido">#EBF5FB</color>
+    <color name="celeste_palido">#AED6F1</color>
+    <color name="celeste">#5DADE2</color>
+    <color name="morado">#884EA0</color>
 </resources>

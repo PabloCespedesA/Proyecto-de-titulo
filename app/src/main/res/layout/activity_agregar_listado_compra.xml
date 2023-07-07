@@ -5,23 +5,18 @@
     android:id="@+id/view_agregar_listado"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/background_background"
+    android:background="@drawable/aquamarine"
     tools:context=".agregar_listado_compra">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/materialToolbar2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/orange"
-        android:foreground="@mipmap/logo3"
-        android:foregroundGravity="center_horizontal"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imagen_tienda"
+        android:layout_width="71dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="4dp"
+        android:src="@mipmap/logo1_round"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/background_foreground" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline22"
@@ -35,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.07" />
+        app:layout_constraintGuide_percent="0.2" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline24"
@@ -55,7 +50,7 @@
         android:id="@+id/btn_guardar_agregar_listado_compra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/rojo"
+        android:backgroundTint="@color/morado"
         android:text="@string/btn_guardar"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -81,31 +76,30 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_listaCompraNueva"
-        android:layout_width="283dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="96dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/guideline23"
         app:layout_constraintEnd_toStartOf="@+id/guideline25"
-        app:layout_constraintStart_toStartOf="@+id/guideline22"
-        app:layout_constraintTop_toTopOf="@+id/materialToolbar2">
+        app:layout_constraintStart_toStartOf="@+id/guideline22">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputEditText"
-            android:layout_width="268dp"
-            android:layout_height="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:hint="@string/til_titulo" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_detalleListadoCompra"
-        android:layout_width="312dp"
-        android:layout_height="464dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline24"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/guideline25"
-        app:layout_constraintStart_toStartOf="@+id/guideline22">
+        app:layout_constraintStart_toStartOf="@+id/guideline22"
+        app:layout_constraintTop_toTopOf="@+id/guideline19">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="452dp"
+            android:layout_height="match_parent"
             android:hint="@string/til_listadoCompras" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -115,10 +109,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:backgroundTint="@color/morado"
         android:text="@string/btn_atras"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/materialToolbar2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.29" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,17 +5,17 @@
     android:id="@+id/view_menu_inicio"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/background_background"
+    android:background="@drawable/aquamarine"
     tools:context=".MenuInicio">
 
     <TextView
         android:id="@+id/tv_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="16dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.22"
+        app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,20 +32,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.87" />
-
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/materialToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/orange"
-        android:foreground="@mipmap/logo3"
-        android:foregroundGravity="center_horizontal"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/background_foreground" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView4"
@@ -69,18 +55,15 @@
         android:id="@+id/til_gestionaTuNegocio"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="504dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/til_gestionaTuNegocio"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/guideline63"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline62"
-        app:layout_constraintTop_toBottomOf="@+id/materialToolbar"
-        app:layout_constraintVertical_bias="0.733" />
+        app:layout_constraintTop_toTopOf="@+id/guideline59" />
 
     <TextView
         android:id="@+id/til_queQuieres"
@@ -101,45 +84,41 @@
         android:id="@+id/btn_registrarProducto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/rojo_btn2"
+        android:backgroundTint="@color/morado"
         android:text="@string/btn_registrarProducto"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/guideline63"
         app:layout_constraintStart_toStartOf="@+id/guideline62"
-        app:layout_constraintTop_toBottomOf="@+id/til_queQuieres"
-        app:layout_constraintVertical_bias="0.203" />
+        app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
     <Button
         android:id="@+id/btn_gestionar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:backgroundTint="@color/rojo_btn2"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/morado"
         android:lineSpacingExtra="16sp"
         android:text="@string/btn_gestionar"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline63"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline62"
-        app:layout_constraintTop_toBottomOf="@+id/btn_registrarProducto" />
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
     <Button
         android:id="@+id/btn_listado"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/rojo_btn2"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="@color/morado"
         android:text="@string/btn_listado"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/guideline63"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline62"
-        app:layout_constraintTop_toBottomOf="@+id/btn_gestionar"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/guideline18" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline59"
@@ -147,5 +126,26 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.08071136" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.46648428" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5813953" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.69357044" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
