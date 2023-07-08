@@ -30,11 +30,10 @@ class Inventario_todos_los_productos : AppCompatActivity() {
         val btn_atras_inventario_todos = findViewById<Button>(R.id.btn_atras_inventario_todos)
         val btn_agregar_producto_listado = findViewById<Button>(R.id.btn_agregar_producto_listado)
         val searchView = findViewById<androidx.appcompat.widget.SearchView>(R.id.seach_buscador_productos)
-
+        val tv_user = findViewById<TextView>(R.id.tv_user_inventario_todos_los_productos)
         //Recuperamos la variable del intent
         cliente = intent.getStringExtra("cliente").toString()
-
-
+        tv_user.setText("Hola Usuario ${cliente}")
 
         lv_todos = findViewById<ListView>(R.id.lv_todos)
 
@@ -89,13 +88,11 @@ class Inventario_todos_los_productos : AppCompatActivity() {
         actualizarListaProductos("")
     }
 
-
-
-
     private fun actualizarListaProductos(textoBusqueda: String) {
         productos.clear()
         lifecycleScope.launch {
             val respuesta = room.daoProducto().obtenerProductosPorBusqueda(cliente, textoBusqueda)
+            productos.clear()
             for (indice in respuesta.indices){
                 productos.add(respuesta[indice].nombre.toString())
             }

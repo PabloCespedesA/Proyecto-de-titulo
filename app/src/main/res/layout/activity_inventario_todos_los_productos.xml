@@ -84,5 +84,13 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.21" />
 
+    <TextView
+        android:id="@+id/tv_user_inventario_todos_los_productos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="145dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

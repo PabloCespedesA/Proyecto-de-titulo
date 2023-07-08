@@ -5,10 +5,6 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
-import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import com.google.android.material.textfield.TextInputLayout
@@ -18,12 +14,12 @@ import roomDataBase.entity.Producto
 import roomDataBase.entity.TipoProducto
 import android.net.Uri
 import android.os.Build
-import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import android.Manifest
 import android.app.Activity
 import android.provider.MediaStore
 import android.view.View
+import android.widget.*
 import androidx.core.app.ActivityCompat
 
 
@@ -95,10 +91,12 @@ class Registrar_producto : AppCompatActivity() {
         val til_ubicacion_producto = findViewById<TextInputLayout>(R.id.til_ubicacion_producto)
         val btn_agregarProducto = findViewById<Button>(R.id.btn_agregarProducto)
         val btn_atras_registrar_producto = findViewById<Button>(R.id.btn_atras_registrar_producto)
+        val tv_user_agregar_producto = findViewById<TextView>(R.id.tv_user_agregar_producto)
 
 
         //Recuperamos la variable del intent
         val cliente:String=intent.getStringExtra("cliente").toString()
+        tv_user_agregar_producto.setText("Hola Usuario ${cliente}")
 
         btn_atras_registrar_producto.setOnClickListener {
             val intent = Intent (this@Registrar_producto,Inventario_todos_los_productos::class.java)

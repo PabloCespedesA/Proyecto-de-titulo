@@ -11,20 +11,25 @@ import kotlinx.coroutines.launch
 import roomDataBase.Db
 
 class Listado_de_compras : AppCompatActivity() {
+
+    private lateinit var room: Db
+    private lateinit var cliente: String
+    private lateinit var lv_todasListaCompras: ListView
+    private val listaCompras = ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_listado_de_compras)
 
         //Inicializar la base de datos
-        val room =
-            Room.databaseBuilder(this, Db::class.java, "database-tiendita").allowMainThreadQueries()
-                .build()
+        //room = Room.databaseBuilder(this, Db::class.java, "database-tiendita").allowMainThreadQueries().build()
 
         //referencias id
-        val lv_todasListaCompras = findViewById<ListView>(R.id.lv_todasListaCompras)
-        //Recuperamos la variable del intent
-        val cliente:String=intent.getStringExtra("cliente").toString()
         val btn_atras_listado_compras = findViewById<Button>(R.id.btn_atras_listado_compras)
+
+        lv_todasListaCompras = findViewById<ListView>(R.id.lv_todasListaCompras)
+
+        //Recuperamos la variable del intent
+        cliente = intent.getStringExtra("cliente").toString()
 
         btn_atras_listado_compras.setOnClickListener {
             val intent = Intent (this@Listado_de_compras,MenuInicio::class.java)
@@ -32,17 +37,7 @@ class Listado_de_compras : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //Llenado de lista
-        var arrayAdapterListView: ArrayAdapter<*>
-        val listaCompras = ArrayList<String>()
-        lifecycleScope.launch {
-            val respuesta = room.daoListaCompra().obtenerListaCompra(cliente)
-            for (indice in respuesta.indices){
-                listaCompras.add(respuesta[indice].nombre.toString())
-            }
-            arrayAdapterListView= ArrayAdapter(this@Listado_de_compras, android.R.layout.simple_list_item_1,listaCompras)
-            lv_todasListaCompras.adapter = arrayAdapterListView
-        }
+
 
         //generar accion al presionar
         lv_todasListaCompras.onItemClickListener = object : AdapterView.OnItemClickListener{
@@ -63,6 +58,31 @@ class Listado_de_compras : AppCompatActivity() {
             startActivity(intent)
         }
 
+       // cargarListaCompras()
 
     }
+    override fun onResume() {
+        super.onResume()
+        // Inicializar la base de datos
+        room = Room.databaseBuilder(this, Db::class.java, "database-tiendita").allowMainThreadQueries().build()
+        cargarListaCompras()
+    }
+    private fun cargarListaCompras() {
+        listaCompras.clear()
+        lifecycleScope.launch {
+            try {
+                val respuesta = room.daoListaCompra().obtenerListaCompra(cliente)
+                for (indice in respuesta.indices) {
+                    listaCompras.add(respuesta[indice].nombre.toString())
+                }
+                val arrayAdapterListView = ArrayAdapter(this@Listado_de_compras, android.R.layout.simple_list_item_1, listaCompras)
+                lv_todasListaCompras.adapter = arrayAdapterListView
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Toast.makeText(this@Listado_de_compras, "Error al cargar la lista de compras", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+
 }

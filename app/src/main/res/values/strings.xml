@@ -1,5 +1,10 @@
 <resources>
     //*Menú Login*//
+    <string name="til_bienvenida_nombre">nombre</string>
+    <string name="til_bienvenida_ingrese_nombre">Ingrese su nombre</string>
+    <string name="btn_ingresar">Ingresar</string>
+
+    //*Menú Login*//
     <string name="app_name">movil app 1</string>
     <string name="til_usuario">Usuario</string>
     <string name="til_pass">Clave</string>
