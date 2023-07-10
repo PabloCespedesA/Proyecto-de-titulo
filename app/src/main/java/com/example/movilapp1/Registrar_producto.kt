@@ -95,12 +95,12 @@ class Registrar_producto : AppCompatActivity() {
 
 
         //Recuperamos la variable del intent
-        val cliente:String=intent.getStringExtra("cliente").toString()
+        val cliente: String = intent.getStringExtra("cliente").toString()
         tv_user_agregar_producto.setText("Hola Usuario ${cliente}")
 
         btn_atras_registrar_producto.setOnClickListener {
-            val intent = Intent (this@Registrar_producto,Inventario_todos_los_productos::class.java)
-            intent.putExtra("cliente",cliente)
+            val intent = Intent(this@Registrar_producto, Inventario_todos_los_productos::class.java)
+            intent.putExtra("cliente", cliente)
             startActivity(intent)
             finish()
         }
@@ -108,20 +108,29 @@ class Registrar_producto : AppCompatActivity() {
         //poblar lista
         //Opciones que tendrá la lista
 
-        val lista = TipoProducto.values().map { it.tipo } // Crea una lista de Strings a partir del Enum
-        val adaptador = ArrayAdapter(this@Registrar_producto, android.R.layout.simple_spinner_dropdown_item, lista)
+        val lista =
+            TipoProducto.values().map { it.tipo } // Crea una lista de Strings a partir del Enum
+        val adaptador = ArrayAdapter(
+            this@Registrar_producto,
+            android.R.layout.simple_spinner_dropdown_item,
+            lista
+        )
         sp_datos_tipos.adapter = adaptador
 
         // Solicitar permisos de almacenamiento
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-                Log.v(TAG,"Permission is granted")
+                Log.v(TAG, "Permission is granted")
             } else {
-                Log.v(TAG,"Permission is revoked")
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)
+                Log.v(TAG, "Permission is revoked")
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                    1
+                )
             }
         } else { //permission is automatically granted on sdk<23 upon installation
-            Log.v(TAG,"Permission is granted")
+            Log.v(TAG, "Permission is granted")
         }
 
         //seleccionar imagen
@@ -137,54 +146,71 @@ class Registrar_producto : AppCompatActivity() {
             val nombre_producto = til_nombre_producto.editText?.text.toString()
             val cantidad_producto = til_cantidad.editText?.text.toString()
             val precio_producto = til_precio_producto.editText?.text.toString()
-            val vencimiento_producto = til_fecha_vencimiento.editText?.text.toString()
+
+            val vencimiento_producto = if (til_fecha_vencimiento.editText?.text.toString().isNullOrEmpty()) {
+                "31/12/9999"
+            } else {
+                til_fecha_vencimiento.editText?.text.toString()
+            }
+
             val ubicacion_producto = til_ubicacion_producto.editText?.text.toString()
-            val imagen_producto_uri = imageUri.toString()  // Convertimos la Uri de la imagen a String
-            var id:Long = 0
-            val producto = Producto(tipo_productos, nombre_producto, cantidad_producto, precio_producto, vencimiento_producto, ubicacion_producto, cliente, imagen_producto_uri) // Añadimos el URI de la imagen al construir el Producto
+            val imagen_producto_uri =
+                imageUri.toString()  // Convertimos la Uri de la imagen a String
+            var id: Long = 0
+            val producto = Producto(
+                tipo_productos,
+                nombre_producto,
+                cantidad_producto,
+                precio_producto,
+                vencimiento_producto,
+                ubicacion_producto,
+                cliente,
+                imagen_producto_uri
+            ) // Añadimos el URI de la imagen al construir el Producto
 
-            Log.i("DEBUG VAR","tipo_productos :"+tipo_productos+"nombre_producto :"+nombre_producto+"cantidad_producto :"+cantidad_producto+"precio_producto :"+precio_producto+"fecha_vencimiento: "+vencimiento_producto+"ubicacion_producto: "+ubicacion_producto+"cliente: "+cliente)
+            Log.i(
+                "DEBUG VAR",
+                "tipo_productos :" + tipo_productos + "nombre_producto :" + nombre_producto + "cantidad_producto :" + cantidad_producto + "precio_producto :" + precio_producto + "fecha_vencimiento: " + vencimiento_producto + "ubicacion_producto: " + ubicacion_producto + "cliente: " + cliente
+            )
 
-            //Validaciones
+
             //Validaciones
             val validate = Validate()
 
-            if(!validate.validarNombre(nombre_producto)) {
+            if (!validate.validarNombre(nombre_producto)) {
                 til_nombre_producto.error = getString(R.string.error_formato_string)
                 return@setOnClickListener
             } else {
                 til_nombre_producto.error = ""
             }
 
-            if(validate.validarNulo(nombre_producto)) {
+            if (validate.validarNulo(nombre_producto)) {
                 til_nombre_producto.error = getString(R.string.error_campo_vacio)
                 return@setOnClickListener
             } else {
                 til_nombre_producto.error = ""
             }
 
-            if(validate.validarNulo(cantidad_producto)) {
+            if (validate.validarNulo(cantidad_producto)) {
                 til_cantidad.error = getString(R.string.error_campo_vacio)
                 return@setOnClickListener
             } else {
                 til_cantidad.error = ""
             }
 
-            if(validate.validarNulo(precio_producto)) {
+            if (validate.validarNulo(precio_producto)) {
                 til_precio_producto.error = getString(R.string.error_campo_vacio)
                 return@setOnClickListener
             } else {
                 til_precio_producto.error = ""
             }
 
-            if(validate.validarNulo(vencimiento_producto)) {
-                til_fecha_vencimiento.error = getString(R.string.error_campo_vacio)
+            if (vencimiento_producto.isNotEmpty() && !isDateFormatValid(vencimiento_producto)) {
+                til_fecha_vencimiento.error = "El formato de la fecha no es válido."
                 return@setOnClickListener
-            } else {
-                til_fecha_vencimiento.error = ""
             }
 
-            if(validate.validarNulo(ubicacion_producto)) {
+            if (validate.validarNulo(ubicacion_producto)) {
                 til_ubicacion_producto.error = getString(R.string.error_campo_vacio)
                 return@setOnClickListener
             } else {
@@ -193,21 +219,37 @@ class Registrar_producto : AppCompatActivity() {
 
             // Si todas las validaciones son correctas, entonces se puede agregar el producto
             lifecycleScope.launch {
-                id= room.daoProducto().agregarProducto(producto)
-                if (id>0){
-                    Toast.makeText(this@Registrar_producto,"Producto registrado correctamente", Toast.LENGTH_SHORT).show()
-                    val intent = Intent (this@Registrar_producto,Inventario_todos_los_productos::class.java)
-                    intent.putExtra("cliente",cliente)
+                id = room.daoProducto().agregarProducto(producto)
+                if (id > 0) {
+                    Toast.makeText(
+                        this@Registrar_producto,
+                        "Producto registrado correctamente",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    val intent =
+                        Intent(this@Registrar_producto, Inventario_todos_los_productos::class.java)
+                    intent.putExtra("cliente", cliente)
                     startActivity(intent)
                 }
             }
         }
 
-        til_fecha_vencimiento.editText?.setOnClickListener { v -> showDatePickerDialog() }
+        til_fecha_vencimiento.editText?.setOnClickListener {
+            // Comprueba si el campo de fecha está vacío o si el formato de la fecha es correcto antes de mostrar el DatePickerDialog.
+            if (til_fecha_vencimiento.editText?.text.toString().isEmpty() ||
+                isDateFormatValid(til_fecha_vencimiento.editText?.text.toString()!!)
+            ) {
+                showDatePickerDialog()
+            } else {
+                til_fecha_vencimiento.error = "El formato de la fecha no es válido."
+            }
+        }
     }
-
+    private fun isDateFormatValid(date: String): Boolean {
+        val datePattern = """^\d{1,2}/\d{1,2}/\d{4}$""".toRegex()
+        return datePattern.matches(date)
+    }
     //Función para poner la fecha seleccionada en el campo de texto
-//Función para poner la fecha seleccionada en el campo de texto
     private fun showDatePickerDialog() {
         val datePicker = DatePickerFragment{ date -> onDateSelected(date) }
         datePicker.show(supportFragmentManager,"datePicker")
@@ -219,5 +261,4 @@ class Registrar_producto : AppCompatActivity() {
         val til_fecha_vencimiento = findViewById<TextInputLayout>(R.id.til_fecha_vencimiento)
         til_fecha_vencimiento.editText?.setText(date)
     }
-
 }

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
@@ -13,7 +14,7 @@ import kotlinx.coroutines.launch
 import roomDataBase.Db
 import java.text.SimpleDateFormat
 import java.util.*
-
+import java.text.ParseException
 class Inventario_todos_los_productos : AppCompatActivity() {
 
     private lateinit var room: Db
@@ -129,10 +130,18 @@ class Inventario_todos_los_productos : AppCompatActivity() {
     }
     fun isNearToExpire(expirationDate: String): Boolean {
         val format = SimpleDateFormat("dd/MM/yyyy")
-        val expireDate = format.parse(expirationDate)
-        val today = Date()
-        val nextWeek = Date(today.time + 7 * 24 * 60 * 60 * 1000)
-        return expireDate.before(nextWeek)
+        try {
+            val expireDate = format.parse(expirationDate)
+            val today = Date()
+            val nextWeek = Date(today.time + 7 * 24 * 60 * 60 * 1000)
+            return expireDate.before(nextWeek)
+        } catch (e: ParseException) {
+            // Aquí puedes manejar el error como prefieras. Por ejemplo, puedes imprimir el error en el log:
+            Log.e("Error", "Fecha no válida: $expirationDate", e)
+            // Y puedes decidir qué hacer en caso de error. Aquí simplemente estoy retornando false:
+            return false
+        }
     }
+
 }
 

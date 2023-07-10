@@ -1,11 +1,14 @@
 package com.example.movilapp1
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import com.google.android.material.textfield.TextInputLayout
@@ -17,6 +20,21 @@ class agregar_listado_compra : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_agregar_listado_compra)
+
+        val view_agregar_listado = findViewById<ConstraintLayout>(R.id.view_agregar_listado)
+        view_agregar_listado.setOnTouchListener { v, event ->
+            if (currentFocus != null) {
+                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+                currentFocus?.clearFocus()
+            }
+            v.performClick()
+            true
+        }
+
+        view_agregar_listado.isClickable = true
+        view_agregar_listado.setOnClickListener { } // asigna un OnClickListener vacío para que el ConstraintLayout sea clickeable
+
 
         //Inicializar la base de datos
         val room =

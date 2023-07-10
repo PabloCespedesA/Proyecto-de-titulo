@@ -194,7 +194,11 @@ class Editar_producto : AppCompatActivity() {
             val nombre = til_nombre_producto_editar.editText?.text.toString()
             val cantidad = til_cantidad_editar.editText?.text.toString()
             val precio = til_precio_editar.editText?.text.toString()
-            val fecha = til_vencimiento_editar.editText?.text.toString()
+            val fecha = if (til_vencimiento_editar.editText?.text.toString().isNullOrEmpty()) {
+                "31/12/9999"
+            } else {
+                til_vencimiento_editar.editText?.text.toString()
+            }
             val ubicacion = til_ubicacion_editar.editText?.text.toString()
 
             val imagen = imageUri.toString() // Convertimos el Uri a String para guardarlo en la base de datos
