@@ -207,18 +207,17 @@ class Registrar_producto : AppCompatActivity() {
     }
 
     //Función para poner la fecha seleccionada en el campo de texto
+//Función para poner la fecha seleccionada en el campo de texto
     private fun showDatePickerDialog() {
-        val datePicker = DatePickerFragment{day, month, year -> onDateSelected(day,month,year) }
+        val datePicker = DatePickerFragment{ date -> onDateSelected(date) }
         datePicker.show(supportFragmentManager,"datePicker")
     }
 
+
     //Función para poner la fecha seleccionada en el campo de texto
-    private fun onDateSelected(day:Int,month:Int,year:Int){
+    private fun onDateSelected(date:String){
         val til_fecha_vencimiento = findViewById<TextInputLayout>(R.id.til_fecha_vencimiento)
-        var daySelected = "$day"
-        var monthSelected = (month+1).toString()
-        if(day<10){daySelected = "0$day"}
-        if((month+1)<10){monthSelected = "0"+(month+1).toString()}
-        til_fecha_vencimiento.editText?.setText("$daySelected/$monthSelected/$year")
+        til_fecha_vencimiento.editText?.setText(date)
     }
+
 }

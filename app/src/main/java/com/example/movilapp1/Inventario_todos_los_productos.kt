@@ -1,14 +1,18 @@
 package com.example.movilapp1
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import kotlinx.coroutines.launch
 import roomDataBase.Db
+import java.text.SimpleDateFormat
+import java.util.*
 
 class Inventario_todos_los_productos : AppCompatActivity() {
 
@@ -23,7 +27,6 @@ class Inventario_todos_los_productos : AppCompatActivity() {
         //Inicializar la base de datos
                 room = Room.databaseBuilder(this, Db::class.java, "database-tiendita").allowMainThreadQueries()
                     .build()
-
 
         //referencias id
 
@@ -92,15 +95,44 @@ class Inventario_todos_los_productos : AppCompatActivity() {
         productos.clear()
         lifecycleScope.launch {
             val respuesta = room.daoProducto().obtenerProductosPorBusqueda(cliente, textoBusqueda)
+
+            // Separar y ordenar los productos próximos a vencer y los que no lo están
+            val nearToExpireProducts = respuesta.filter { it.fecha?.let { fecha -> isNearToExpire(fecha) } ?: false }.sortedBy { it.nombre }
+
+            val notNearToExpireProducts = respuesta.filter { it.fecha?.let { fecha -> !isNearToExpire(fecha) } ?: true }.sortedBy { it.nombre }
+
+            val sortedProducts = nearToExpireProducts + notNearToExpireProducts
+
+            // Llenar la lista con los nombres de los productos
             productos.clear()
-            for (indice in respuesta.indices){
-                productos.add(respuesta[indice].nombre.toString())
+            for (producto in sortedProducts) {
+                productos.add(producto.nombre.toString())
             }
-            val arrayAdapterListView = ArrayAdapter(this@Inventario_todos_los_productos, android.R.layout.simple_list_item_1, productos)
+
+            // Crear y asignar el adaptador
+            val arrayAdapterListView = object : ArrayAdapter<String>(this@Inventario_todos_los_productos, android.R.layout.simple_list_item_1, productos) {
+                override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                    val view = super.getView(position, convertView, parent)
+                    val textView = view.findViewById<TextView>(android.R.id.text1)
+
+                    if (isNearToExpire(sortedProducts[position].fecha ?: "01/01/2100")) {
+                        textView.setTextColor(Color.RED)
+                    } else {
+                        textView.setTextColor(Color.BLACK)
+                    }
+
+                    return view
+                }
+            }
             lv_todos.adapter = arrayAdapterListView
         }
     }
-
-
+    fun isNearToExpire(expirationDate: String): Boolean {
+        val format = SimpleDateFormat("dd/MM/yyyy")
+        val expireDate = format.parse(expirationDate)
+        val today = Date()
+        val nextWeek = Date(today.time + 7 * 24 * 60 * 60 * 1000)
+        return expireDate.before(nextWeek)
+    }
 }
 

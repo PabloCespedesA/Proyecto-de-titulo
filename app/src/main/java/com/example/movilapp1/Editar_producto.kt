@@ -71,6 +71,18 @@ class Editar_producto : AppCompatActivity() {
         val cliente: String = intent.getStringExtra("cliente").toString()
         val nombre: String = intent.getStringExtra("nombre").toString()
 
+
+        val newFragment = DatePickerFragment  { date: String ->
+            // En la función lambda, simplemente estableces la fecha seleccionada en el campo de texto
+            til_vencimiento_editar.editText?.setText(date)
+        }
+
+        // Cuando se hace clic en el campo de fecha de vencimiento, se muestra el DatePickerDialog
+        til_vencimiento_editar.editText?.setOnClickListener {
+            newFragment.show(supportFragmentManager, "datePicker")
+        }
+
+
         btn_atras_editar_producto.setOnClickListener {
             val intent = Intent (this@Editar_producto,Inventario_todos_los_productos::class.java)
             intent.putExtra("cliente",cliente)

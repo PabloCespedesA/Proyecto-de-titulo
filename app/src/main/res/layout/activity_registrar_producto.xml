@@ -105,11 +105,16 @@
         app:layout_constraintTop_toTopOf="@+id/guideline52">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_fecha_vencimiento"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/til_fechaVencimientoProducto"
-            android:inputType="date" />
+            android:inputType="date"
+            android:focusable="false"
+            android:clickable="true"/>
     </com.google.android.material.textfield.TextInputLayout>
+
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_ubicacion_producto"
