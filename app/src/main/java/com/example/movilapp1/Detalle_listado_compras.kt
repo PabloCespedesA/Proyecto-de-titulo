@@ -1,12 +1,15 @@
 package com.example.movilapp1
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.room.Room
 import com.google.android.material.textfield.TextInputLayout
@@ -20,6 +23,17 @@ class Detalle_listado_compras : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalle_listado_compras)
+
+        val view_agregar_listado = findViewById<ConstraintLayout>(R.id.view_detalle_listado)
+        view_agregar_listado.setOnTouchListener { v, event ->
+            if (currentFocus != null) {
+                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+                currentFocus?.clearFocus()
+            }
+            v.performClick()
+            true
+        }
 
         val til_editar_titulo = findViewById<TextInputLayout>(R.id.til_editar_titulo)
         val til_editar_detalle = findViewById<TextInputLayout>(R.id.til_editar_detalle)

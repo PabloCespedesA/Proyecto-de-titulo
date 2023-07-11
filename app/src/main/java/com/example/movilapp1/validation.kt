@@ -10,14 +10,15 @@ class Validate {
         return texto.equals("")||texto.length==0
     }
     /*validar formato nombre con expresion regular*/
-    fun validarNombre (nombre: String):Boolean{
-        val pattern = Pattern.compile("^[a-zA-Z\\s]+\$") // Se agregó \\s para aceptar espacios
+    fun validarNombre(nombre: String): Boolean {
+        val pattern = Pattern.compile("^[a-zA-Z0-9\\sáéíóúÁÉÍÓÚ]+\$") // Se agregaron los caracteres con tilde
         return pattern.matcher(nombre).matches()
     }
+
     /*validar cantidad de producto */
-    fun validarCantidad (cantidad: String):Boolean{
+    fun validarCantidad(cantidad: String): Boolean {
         val num = cantidad.toIntOrNull()
-        return num != null && num in 1..9999 // Retorna verdadero si la cantidad es un número entre 1 y 9999
+        return num != null // Retorna verdadero si la cantidad es un número, de lo contrario, devuelve falso
     }
     /*validar correo*/
     fun validarCorreo (correo: String):Boolean{

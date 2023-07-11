@@ -5,7 +5,7 @@
     <string name="btn_ingresar">Ingresar</string>
 
     //*Menú Login*//
-    <string name="app_name">movil app 1</string>
+    <string name="app_name">La tiendita</string>
     <string name="til_usuario">Usuario</string>
     <string name="til_pass">Clave</string>
 
@@ -48,6 +48,8 @@
 
     <string name="til_productosInventario">Productos del inventario</string>
     <string name="til_subProductosInventario">Todos los productos registrados hasta el momento</string>
+    <string name="til_advertencia_vencidos">(Si el producto está en color rojo al inicio de la lista, es por que está cercano a vencer en los próximos 7 días)</string>
+
 
     //*Inventario de todos los productos por tipo*//
 

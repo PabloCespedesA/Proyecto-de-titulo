@@ -42,6 +42,11 @@ class Inventario_todos_los_productos : AppCompatActivity() {
         lv_todos = findViewById<ListView>(R.id.lv_todos)
 
         //Buscador
+
+        searchView.setOnClickListener {
+            searchView.isIconified = false
+        }
+
         searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 return true
@@ -118,6 +123,7 @@ class Inventario_todos_los_productos : AppCompatActivity() {
 
                     if (isNearToExpire(sortedProducts[position].fecha ?: "01/01/2100")) {
                         textView.setTextColor(Color.RED)
+                        textView.setShadowLayer(1.5f, -1f, -1f, Color.BLACK)
                     } else {
                         textView.setTextColor(Color.BLACK)
                     }

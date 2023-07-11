@@ -50,7 +50,7 @@
         android:id="@+id/btn_guardar_detalle_listado_compras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/rojo"
+        android:backgroundTint="@color/morado"
         android:text="@string/btn_guardar"
         android:textSize="16sp"
         android:textStyle="bold"

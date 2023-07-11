@@ -17,9 +17,12 @@ import android.os.Build
 import androidx.activity.result.contract.ActivityResultContracts
 import android.Manifest
 import android.app.Activity
+import android.content.Context
 import android.provider.MediaStore
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 
 
@@ -77,6 +80,17 @@ class Registrar_producto : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registrar_producto)
+
+        val view_agregar_listado = findViewById<ConstraintLayout>(R.id.view_registrar_producto)
+        view_agregar_listado.setOnTouchListener { v, event ->
+            if (currentFocus != null) {
+                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+                currentFocus?.clearFocus()
+            }
+            v.performClick()
+            true
+        }
 
         //Inicializar la base de datos
         val room =
@@ -178,32 +192,33 @@ class Registrar_producto : AppCompatActivity() {
             val validate = Validate()
 
             if (!validate.validarNombre(nombre_producto)) {
-                til_nombre_producto.error = getString(R.string.error_formato_string)
+                til_nombre_producto.error = "Campo vacío o carácteres no validos"
                 return@setOnClickListener
             } else {
                 til_nombre_producto.error = ""
             }
 
             if (validate.validarNulo(nombre_producto)) {
-                til_nombre_producto.error = getString(R.string.error_campo_vacio)
+                til_nombre_producto.error = "Campo vacío o carácteres no validos"
                 return@setOnClickListener
             } else {
                 til_nombre_producto.error = ""
             }
 
-            if (validate.validarNulo(cantidad_producto)) {
-                til_cantidad.error = getString(R.string.error_campo_vacio)
+            if (!validate.validarCantidad(cantidad_producto)) {
+                til_cantidad.error = "Campo vacío o carácteres no validos"
                 return@setOnClickListener
             } else {
                 til_cantidad.error = ""
             }
 
-            if (validate.validarNulo(precio_producto)) {
-                til_precio_producto.error = getString(R.string.error_campo_vacio)
+            if (!validate.validarCantidad(precio_producto)) {
+                til_precio_producto.error = "Campo vacío o carácteres no validos"
                 return@setOnClickListener
             } else {
                 til_precio_producto.error = ""
             }
+
 
             if (vencimiento_producto.isNotEmpty() && !isDateFormatValid(vencimiento_producto)) {
                 til_fecha_vencimiento.error = "El formato de la fecha no es válido."

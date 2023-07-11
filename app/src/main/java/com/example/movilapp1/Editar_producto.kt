@@ -18,7 +18,10 @@ import roomDataBase.Db
 import roomDataBase.entity.TipoProducto
 import android.Manifest
 import android.app.Activity
+import android.content.Context
 import android.content.pm.PackageManager
+import android.view.inputmethod.InputMethodManager
+import androidx.constraintlayout.widget.ConstraintLayout
 
 class Editar_producto : AppCompatActivity() {
 
@@ -42,6 +45,17 @@ class Editar_producto : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editar_producto)
 
+        val view_agregar_listado = findViewById<ConstraintLayout>(R.id.view_editar_producto)
+        view_agregar_listado.setOnTouchListener { v, event ->
+            if (currentFocus != null) {
+                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+                currentFocus?.clearFocus()
+            }
+            v.performClick()
+            true
+        }
+
         // Verificar permisos de almacenamiento
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             // Permiso otorgado, puedes continuar con la lógica relacionada con el almacenamiento
@@ -58,7 +72,7 @@ class Editar_producto : AppCompatActivity() {
         val til_precio_editar = findViewById<TextInputLayout>(R.id.til_precio_editar)
         val til_vencimiento_editar = findViewById<TextInputLayout>(R.id.til_vencimiento_editar)
         val til_ubicacion_editar = findViewById<TextInputLayout>(R.id.til_ubicacion_editar)
-        val txt_usuarioActual = findViewById<TextView>(R.id.txt_usuarioActual)
+        //val txt_usuarioActual = findViewById<TextView>(R.id.txt_usuarioActual)
         val btn_guardar_editar = findViewById<Button>(R.id.btn_guardar_editar)
         val btn_eliminar_editar = findViewById<Button>(R.id.btn_eliminar_editar)
         val btn_atras_editar_producto = findViewById<Button>(R.id.btn_atras_editar_producto)
@@ -98,7 +112,7 @@ class Editar_producto : AppCompatActivity() {
         val ivEditarImagenProducto = findViewById<ImageView>(R.id.iv_editar_imagen_producto)
 
         var id:Long = 0
-        txt_usuarioActual.setText("Usuario ${cliente}")
+        //txt_usuarioActual.setText("Usuario ${cliente}")
         tv_id.setText("Producto: ${nombre}")
 
         //poblar lista
@@ -204,6 +218,52 @@ class Editar_producto : AppCompatActivity() {
             val imagen = imageUri.toString() // Convertimos el Uri a String para guardarlo en la base de datos
 
 
+
+            //Validaciones
+            val validate = Validate()
+
+            if (!validate.validarNombre(nombre)) {
+                til_nombre_producto_editar.error = "Campo vacío o carácteres no validos"
+                return@setOnClickListener
+            } else {
+                til_nombre_producto_editar.error = ""
+            }
+
+            if (validate.validarNulo(nombre)) {
+                til_nombre_producto_editar.error = "Campo vacío o carácteres no validos"
+                return@setOnClickListener
+            } else {
+                til_nombre_producto_editar.error = ""
+            }
+
+            if (!validate.validarCantidad(cantidad)) {
+                til_cantidad_editar.error = "Campo vacío o carácteres no validos"
+                return@setOnClickListener
+            } else {
+                til_cantidad_editar.error = ""
+            }
+
+            if (!validate.validarCantidad(precio)) {
+                til_precio_editar.error = "Campo vacío o carácteres no validos"
+                return@setOnClickListener
+            } else {
+                til_precio_editar.error = ""
+            }
+
+
+            if (fecha.isNotEmpty() && !isDateFormatValid(fecha)) {
+                til_vencimiento_editar.error = "El formato de la fecha no es válido."
+                return@setOnClickListener
+            }
+
+            if (validate.validarNulo(ubicacion)) {
+                til_ubicacion_editar.error = getString(R.string.error_campo_vacio)
+                return@setOnClickListener
+            } else {
+                til_ubicacion_editar.error = ""
+            }
+
+
             lifecycleScope.launch {
                 // Llama a la función de actualización
                 val result = room.daoProducto().actualizarProductos(tipos, nombre, cantidad, precio, fecha, ubicacion, imagen, productoId)
@@ -217,6 +277,17 @@ class Editar_producto : AppCompatActivity() {
                 val intent = Intent (this@Editar_producto,Inventario_todos_los_productos::class.java)
                 intent.putExtra("cliente",cliente)
                 startActivity(intent)
+            }
+
+            til_vencimiento_editar.editText?.setOnClickListener {
+                // Comprueba si el campo de fecha está vacío o si el formato de la fecha es correcto antes de mostrar el DatePickerDialog.
+                if (til_vencimiento_editar.editText?.text.toString().isEmpty() ||
+                    isDateFormatValid(til_vencimiento_editar.editText?.text.toString()!!)
+                ) {
+                    showDatePickerDialog()
+                } else {
+                    til_vencimiento_editar.error = "El formato de la fecha no es válido."
+                }
             }
         }
 
@@ -253,6 +324,21 @@ class Editar_producto : AppCompatActivity() {
                 .create()
                 .show() // Muestra el diálogo
         }
-
     }
+    private fun isDateFormatValid(date: String): Boolean {
+        val datePattern = """^\d{1,2}/\d{1,2}/\d{4}$""".toRegex()
+        return datePattern.matches(date)
+    }
+    //Función para poner la fecha seleccionada en el campo de texto
+    private fun showDatePickerDialog() {
+        val datePicker = DatePickerFragment{ date -> onDateSelected(date) }
+        datePicker.show(supportFragmentManager,"datePicker")
+    }
+
+    //Función para poner la fecha seleccionada en el campo de texto
+    private fun onDateSelected(date:String){
+        val til_fecha_vencimiento = findViewById<TextInputLayout>(R.id.til_fecha_vencimiento)
+        til_fecha_vencimiento.editText?.setText(date)
+    }
+
 }
