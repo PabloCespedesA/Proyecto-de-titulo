@@ -31,10 +31,10 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imagen_tienda2"
-        android:layout_width="71dp"
-        android:layout_height="61dp"
+        android:layout_width="88dp"
+        android:layout_height="79dp"
         android:layout_marginTop="4dp"
-        android:src="@mipmap/logo1_round"
+        android:src="@mipmap/logo_duck"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

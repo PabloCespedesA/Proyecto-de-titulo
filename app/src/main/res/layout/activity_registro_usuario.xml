@@ -11,7 +11,7 @@
         android:id="@+id/imagen_tienda2"
         android:layout_width="88dp"
         android:layout_height="74dp"
-        android:src="@mipmap/logo1_round"
+        android:src="@mipmap/logo_duck"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

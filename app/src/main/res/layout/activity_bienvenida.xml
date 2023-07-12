@@ -9,12 +9,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="419dp"
+        android:layout_height="116dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/logo1" />
+        app:srcCompat="@mipmap/logo_duck" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_bienvenida"

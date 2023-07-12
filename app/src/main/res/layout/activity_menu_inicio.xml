@@ -40,7 +40,7 @@
         android:id="@+id/imageView4"
         android:layout_width="105dp"
         android:layout_height="105dp"
-        android:src="@mipmap/logo2"
+        android:src="@mipmap/logo_duck"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/til_gestionaTuNegocio" />
