@@ -19,11 +19,14 @@ import android.Manifest
 import android.app.Activity
 import android.content.Context
 import android.provider.MediaStore
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
+import kotlin.math.ceil
 
 
 class Registrar_producto : AppCompatActivity() {
@@ -106,6 +109,8 @@ class Registrar_producto : AppCompatActivity() {
         val btn_agregarProducto = findViewById<Button>(R.id.btn_agregarProducto)
         val btn_atras_registrar_producto = findViewById<Button>(R.id.btn_atras_registrar_producto)
         val tv_user_agregar_producto = findViewById<TextView>(R.id.tv_user_agregar_producto)
+        val precioSugeridoTextView = findViewById<TextView>(R.id.precioSugeridoTextView) // Cambia esto a tu ID real
+
 
 
         //Recuperamos la variable del intent
@@ -152,6 +157,29 @@ class Registrar_producto : AppCompatActivity() {
         btnSeleccionarImagen.setOnClickListener { view ->
             openImagePicker(view)
         }
+
+        // Añade un TextWatcher a tu EditText
+        til_precio_producto.editText?.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+                // No necesitamos hacer nada aquí
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                // No necesitamos hacer nada aquí
+            }
+
+            override fun afterTextChanged(s: Editable) {
+                // Cuando el texto cambia, actualizamos el TextView de precio sugerido
+                val precio = s.toString().toDoubleOrNull()
+                if (precio != null) {
+                    val precioSugerido = precio * 1.3 // Añade un 30% al precio
+                    val precioSugeridoRedondeado = ceil(precioSugerido / 10) * 10 // Redondea al próximo múltiplo de 10
+                    precioSugeridoTextView.text = precioSugeridoRedondeado.toInt().toString() // Actualiza el TextView con el precio sugerido sin decimales
+                } else {
+                    precioSugeridoTextView.text = "" // Si el precio no es un número válido, limpia el TextView
+                }
+            }
+        })
 
         btn_agregarProducto.setOnClickListener {
             // Capturar valores
